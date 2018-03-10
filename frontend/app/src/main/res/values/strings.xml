@@ -6,4 +6,8 @@
     <string name="delete_participation_button_text">Delete participation</string>
     <string name="volunteer_button_text">Volunteer</string>
     <string name="donate_button_text">Donate</string>
+    <string name="details_added_message_text_view">Details are successfully saved!!</string>
+    <string name="show_current_funds_text_view">Current funds</string>
+    <string name="ask_add_more_button">Add more locally?</string>
+    <string name="leave_button">Leave</string>
 </resources>
