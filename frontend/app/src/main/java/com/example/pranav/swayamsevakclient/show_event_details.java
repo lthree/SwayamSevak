@@ -13,6 +13,10 @@ public class show_event_details extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_event_details);
 
+        // extract event id
+        Bundle extras = getIntent().getExtras();
+        int event_id = (Integer) extras.get("event_id");
+
         // DB query to fetch specific event details
         // TODO
         // invoke donate activity if donate button pressed
