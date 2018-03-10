@@ -10,7 +10,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main);
-        Intent open_contributor_home_page_intent = new Intent(this, contributor_home_page.class);
+        Intent open_contributor_home_page_intent = new Intent(this, participant_home_page.class);
         startActivity(open_contributor_home_page_intent);
     }
 }

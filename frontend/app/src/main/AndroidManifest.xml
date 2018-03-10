@@ -16,7 +16,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".contributor_home_page" />
+        <activity android:name=".participant_home_page" />
         <activity android:name=".list_available_events" />
         <activity android:name=".show_event_details" />
         <activity android:name=".donate_activity" />
@@ -29,7 +29,8 @@
         <activity android:name=".participant_confirm_unsubscription" />
         <activity android:name=".participant_unsubscribe_status" />
         <activity android:name=".volunteer_home" />
-        <activity android:name=".volunteer_logout"></activity>
+        <activity android:name=".volunteer_logout" />
+        <activity android:name=".participant_details_updated" />
     </application>
 
 </manifest>

@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class contributor_home_page extends AppCompatActivity {
+public class participant_home_page extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +22,7 @@ public class contributor_home_page extends AppCompatActivity {
             }
         });
 
-        final Button view_contributions = (Button) findViewById(R.id.view_contributions_button);
+        Button view_contributions = (Button) findViewById(R.id.view_contributions_button);
         view_contributions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -31,25 +31,21 @@ public class contributor_home_page extends AppCompatActivity {
             }
         });
 
-
-
-        Button update_contributor_details = (Button) findViewById(R.id.update_contributor_info_button);
-        update_contributor_details.setOnClickListener(new View.OnClickListener() {
+        Button update_participant_details = (Button) findViewById(R.id.update_contributor_info_button);
+        update_participant_details.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent update_contributor_info_intent = new Intent(getApplicationContext(), update_participant_details.class);
-                startActivity(update_contributor_info_intent);
+                Intent update_participant_info_intent = new Intent(getApplicationContext(), update_participant_details.class);
+                startActivity(update_participant_info_intent);
             }
         });
 
-
-
-        Button unsubscribe_contributor = (Button) findViewById(R.id.delete_participation_button);
-        unsubscribe_contributor.setOnClickListener(new View.OnClickListener() {
+        Button unsubscribe_participant = (Button) findViewById(R.id.delete_participation_button);
+        unsubscribe_participant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent unsubcribe_contributor_intent = new Intent(getApplicationContext(), participant_unsubscribe.class);
-                startActivity(unsubcribe_contributor_intent);
+                Intent unsubscribe_participant_intent = new Intent(getApplicationContext(), participant_unsubscribe.class);
+                startActivity(unsubscribe_participant_intent);
             }
         });
     }

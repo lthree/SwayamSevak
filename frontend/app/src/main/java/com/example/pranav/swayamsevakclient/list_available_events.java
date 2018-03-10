@@ -11,7 +11,8 @@ public class list_available_events extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_available_events);
         // fetch list of events from DB
+        // TODO
         // set on click listener for each item to fetch individual event information
-
+        // TODO
     }
 }
