@@ -9,5 +9,7 @@ public class participant_unsubscribe_status extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_participant_unsubscribe_status);
+        // Shows participant has been successfully unsubscribed from an event.
+        // TODO
     }
 }
