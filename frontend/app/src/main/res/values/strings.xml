@@ -14,4 +14,6 @@
     <string name="participant_details_updated_button_text">Update</string>
     <string name="participant_abandon_confirm_button">Confirm</string>
     <string name="participant_abandon_revert_button">Cancel</string>
+    <string name="participant_unsubscribed_message_text_view">You are successfully unsubscribed!!</string>
+    <string name="participant_unsubscribed_button">OK</string>
 </resources>
