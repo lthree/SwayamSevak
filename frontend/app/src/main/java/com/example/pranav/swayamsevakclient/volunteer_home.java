@@ -42,7 +42,5 @@ public class volunteer_home extends AppCompatActivity {
                                                            startActivity(volunteer_logout_intent);
                                                        }
                                                    });
-
-
     }
 }
