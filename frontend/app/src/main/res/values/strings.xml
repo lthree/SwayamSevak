@@ -11,4 +11,5 @@
     <string name="ask_add_more_button">Add more locally?</string>
     <string name="leave_button">Leave</string>
     <string name="back_from_contribution_list_button">Back</string>
+    <string name="participant_details_updated_button_text">Update</string>
 </resources>
