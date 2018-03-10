@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">SwayamSevakClient</string>
-    <string name="list_events">List events</string>
-    <string name="view_contributions">View contributions</string>
-    <string name="update_contributor_info">Update personal information</string>
-    <string name="delete_participation">Delete participation</string>
+    <string name="list_events_button_text">List events</string>
+    <string name="view_contributions_button_text">View contributions</string>
+    <string name="update_contributor_info_button_text">Update personal information</string>
+    <string name="delete_participation_button_text">Delete participation</string>
+    <string name="volunteer_button_text">Volunteer</string>
+    <string name="donate_button_text">Donate</string>
 </resources>

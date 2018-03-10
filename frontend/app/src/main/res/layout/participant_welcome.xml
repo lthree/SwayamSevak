@@ -12,25 +12,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="@string/list_events" />
+        android:text="@string/list_events_button_text" />
 
     <Button
         android:id="@+id/view_contributions_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="@string/view_contributions" />
+        android:text="@string/view_contributions_button_text" />
 
     <Button
         android:id="@+id/update_contributor_info_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="@string/update_contributor_info" />
+        android:text="@string/update_contributor_info_button_text" />
     <Button
         android:id="@+id/delete_participation_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="@string/delete_participation" />
+        android:text="@string/delete_participation_button_text" />
 </LinearLayout>
