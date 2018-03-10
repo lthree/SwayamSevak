@@ -16,6 +16,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".contributor_home_page" />
+        <activity android:name=".list_available_events" />
+        <activity android:name=".show_event_details" />
+        <activity android:name=".donate_activity" />
+        <activity android:name=".donor_details_added" />
+        <activity android:name=".volunteer_adds_donor" />
+        <activity android:name=".volunteer_after_donor_added" />
+        <activity android:name=".view_contributions" />
+        <activity android:name=".update_participant_details" />
+        <activity android:name=".participant_unsubscribe" />
+        <activity android:name=".participant_confirm_unsubscription" />
+        <activity android:name=".participant_unsubscribe_status"></activity>
     </application>
 
 </manifest>

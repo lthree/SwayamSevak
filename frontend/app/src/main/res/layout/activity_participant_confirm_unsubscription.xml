@@ -33,6 +33,3 @@
         android:text="@string/participant_abandon_revert_button" />
 
 </LinearLayout>
-
-
-<!-- participant views event and deletes it -->
