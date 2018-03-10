@@ -10,4 +10,5 @@
     <string name="show_current_funds_text_view">Current funds</string>
     <string name="ask_add_more_button">Add more locally?</string>
     <string name="leave_button">Leave</string>
+    <string name="back_from_contribution_list_button">Back</string>
 </resources>
