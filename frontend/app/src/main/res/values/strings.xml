@@ -16,4 +16,6 @@
     <string name="participant_abandon_revert_button">Cancel</string>
     <string name="participant_unsubscribed_message_text_view">You are successfully unsubscribed!!</string>
     <string name="participant_unsubscribed_button">OK</string>
+    <string name="volunteer_go_button_text">Go</string>
+    <string name="volunteer_logout_button_text">Logout</string>
 </resources>

@@ -27,7 +27,9 @@
         <activity android:name=".update_participant_details" />
         <activity android:name=".participant_unsubscribe" />
         <activity android:name=".participant_confirm_unsubscription" />
-        <activity android:name=".participant_unsubscribe_status"></activity>
+        <activity android:name=".participant_unsubscribe_status" />
+        <activity android:name=".volunteer_home" />
+        <activity android:name=".volunteer_logout"></activity>
     </application>
 
 </manifest>
