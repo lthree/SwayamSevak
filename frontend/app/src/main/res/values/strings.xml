@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">SwayamSevakClient</string>
+    <string name="list_events">List events</string>
+    <string name="view_contributions">View contributions</string>
+    <string name="update_contributor_info">Update personal information</string>
+    <string name="delete_participation">Delete participation</string>
 </resources>
