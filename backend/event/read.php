@@ -1,0 +1,64 @@
+<?php
+
+
+include 'connection.php';
+//echo "This Page exist";
+
+if (isset($_POST['idVolunteer']) && isset($_POST['loginToken'])) {
+	$idVolunteer = $_POST['idVolunteer'];
+	$loginToken = $_POST['loginToken'];
+	echo $idVolunteer."\t". $loginToken."\n";
+	if(isLogin($idVolunteer,$loginToken,$con)==false){
+		echo "All Not Good";
+		$response["error"] = True;
+		$response["error_msg"] = "Login failed please re-login";
+		echo json_encode($response);
+		exit(); 
+	}
+}else{
+	// required post params is missing
+	$response["error"] = TRUE;
+	$response["error_msg"] = "Required parameters  missing!";
+	echo json_encode($response);
+	exit();
+	
+}
+
+header('Content-type: application/json');
+//echo "I am here";
+
+$sql = "SELECT * FROM event";
+$result = $con->query($sql);
+$myObj = (object)([]);
+if ($result->num_rows > 0) {
+	
+	$returnObj = array();
+    // output data of each row
+    while($r = $result->fetch_assoc()) {
+		$returnObj['eventlist'][] = $r;	
+    }
+} else {
+    echo "0 results";
+}
+
+$myJSON = json_encode($returnObj);
+
+echo $myJSON;
+
+function isLogin($idVolunteer,$loginToken,$con){
+	$sql = "Select idVolunteer from volunteer where isOnline = 1 and loginToken ='".$loginToken."' and idVolunteer =$idVolunteer";
+	echo "\n".$sql."\n";
+	$result = $con->query($sql);
+        if ($result->num_rows > 0) {
+            // user existed
+				echo "True it is";
+				return true;
+			}
+         else {
+            // user not existed
+            return false;
+        }
+	
+}
+
+?>

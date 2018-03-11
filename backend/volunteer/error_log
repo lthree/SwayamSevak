@@ -1,0 +1,38 @@
+[10-Mar-2018 05:25:50 UTC] PHP Fatal error:  Class 'DB_Functions' not found in /home/thesoulitude/public_html/MumbaiHackathon/volunteer/register.php on line 4
+[10-Mar-2018 05:25:53 UTC] PHP Fatal error:  Class 'DB_Functions' not found in /home/thesoulitude/public_html/MumbaiHackathon/volunteer/register.php on line 4
+[10-Mar-2018 05:34:20 UTC] PHP Fatal error:  Class 'DB_Functions' not found in /home/thesoulitude/public_html/MumbaiHackathon/volunteer/register.php on line 4
+[10-Mar-2018 05:34:52 UTC] PHP Fatal error:  Class 'DB_Functions' not found in /home/thesoulitude/public_html/MumbaiHackathon/volunteer/register.php on line 4
+[10-Mar-2018 05:35:05 UTC] PHP Fatal error:  Class 'DB_Functions' not found in /home/thesoulitude/public_html/MumbaiHackathon/volunteer/register.php on line 4
+[10-Mar-2018 05:35:07 UTC] PHP Fatal error:  Class 'DB_Functions' not found in /home/thesoulitude/public_html/MumbaiHackathon/volunteer/register.php on line 4
+[10-Mar-2018 05:35:19 UTC] PHP Fatal error:  Class 'DB_Functions' not found in /home/thesoulitude/public_html/MumbaiHackathon/volunteer/register.php on line 4
+[10-Mar-2018 05:36:00 UTC] PHP Fatal error:  Class 'DB_Functions' not found in /home/thesoulitude/public_html/MumbaiHackathon/volunteer/register.php on line 4
+[10-Mar-2018 05:36:01 UTC] PHP Fatal error:  Class 'DB_Functions' not found in /home/thesoulitude/public_html/MumbaiHackathon/volunteer/register.php on line 4
+[10-Mar-2018 05:36:06 UTC] PHP Fatal error:  Class 'DB_Functions' not found in /home/thesoulitude/public_html/MumbaiHackathon/volunteer/register.php on line 4
+[10-Mar-2018 05:36:44 UTC] PHP Fatal error:  Class 'DB_Functions' not found in /home/thesoulitude/public_html/MumbaiHackathon/volunteer/register.php on line 4
+[10-Mar-2018 05:36:45 UTC] PHP Fatal error:  Class 'DB_Functions' not found in /home/thesoulitude/public_html/MumbaiHackathon/volunteer/register.php on line 4
+[10-Mar-2018 07:15:05 UTC] PHP Fatal error:  Call to undefined method mysqli_stmt::setFetchMode() in /home/thesoulitude/public_html/MumbaiHackathon/volunteer/register.php on line 96
+[10-Mar-2018 07:26:25 UTC] PHP Fatal error:  Cannot pass parameter 2 by reference in /home/thesoulitude/public_html/MumbaiHackathon/volunteer/register.php on line 92
+[10-Mar-2018 07:27:27 UTC] PHP Fatal error:  Cannot pass parameter 2 by reference in /home/thesoulitude/public_html/MumbaiHackathon/volunteer/register.php on line 94
+[10-Mar-2018 07:27:29 UTC] PHP Fatal error:  Cannot pass parameter 2 by reference in /home/thesoulitude/public_html/MumbaiHackathon/volunteer/register.php on line 94
+[10-Mar-2018 07:41:25 UTC] PHP Fatal error:  Cannot pass parameter 2 by reference in /home/thesoulitude/public_html/MumbaiHackathon/volunteer/register.php on line 91
+[10-Mar-2018 07:52:15 UTC] PHP Fatal error:  Call to a member function query() on a non-object in /home/thesoulitude/public_html/MumbaiHackathon/volunteer/register.php on line 99
+[10-Mar-2018 07:53:47 UTC] PHP Fatal error:  Call to a member function query() on a non-object in /home/thesoulitude/public_html/MumbaiHackathon/volunteer/register.php on line 99
+[10-Mar-2018 07:56:41 UTC] PHP Fatal error:  Call to a member function query() on a non-object in /home/thesoulitude/public_html/MumbaiHackathon/volunteer/register.php on line 99
+[10-Mar-2018 08:00:38 UTC] PHP Fatal error:  Call to a member function close() on a non-object in /home/thesoulitude/public_html/MumbaiHackathon/volunteer/register.php on line 109
+[10-Mar-2018 08:00:59 UTC] PHP Fatal error:  Call to a member function close() on a non-object in /home/thesoulitude/public_html/MumbaiHackathon/volunteer/register.php on line 109
+[10-Mar-2018 08:12:26 UTC] PHP Fatal error:  Cannot access empty property in /home/thesoulitude/public_html/MumbaiHackathon/volunteer/register.php on line 53
+[10-Mar-2018 08:13:33 UTC] PHP Fatal error:  Cannot use object of type mysqli_result as array in /home/thesoulitude/public_html/MumbaiHackathon/volunteer/register.php on line 178
+[10-Mar-2018 08:15:04 UTC] PHP Fatal error:  Cannot use object of type mysqli_result as array in /home/thesoulitude/public_html/MumbaiHackathon/volunteer/register.php on line 178
+[10-Mar-2018 08:16:58 UTC] PHP Fatal error:  Cannot use object of type mysqli_result as array in /home/thesoulitude/public_html/MumbaiHackathon/volunteer/register.php on line 171
+[10-Mar-2018 08:18:30 UTC] PHP Fatal error:  Cannot use object of type mysqli_result as array in /home/thesoulitude/public_html/MumbaiHackathon/volunteer/register.php on line 172
+[10-Mar-2018 08:43:27 UTC] PHP Fatal error:  Call to a member function query() on a non-object in /home/thesoulitude/public_html/MumbaiHackathon/volunteer/register.php on line 46
+[10-Mar-2018 08:44:07 UTC] PHP Fatal error:  Call to a member function query() on a non-object in /home/thesoulitude/public_html/MumbaiHackathon/volunteer/register.php on line 46
+[10-Mar-2018 08:50:53 UTC] PHP Fatal error:  Call to a member function query() on a non-object in /home/thesoulitude/public_html/MumbaiHackathon/volunteer/register.php on line 90
+[10-Mar-2018 10:14:10 UTC] PHP Fatal error:  Using $this when not in object context in /home/thesoulitude/public_html/MumbaiHackathon/volunteer/tryRegister.php on line 77
+[10-Mar-2018 10:14:43 UTC] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/thesoulitude/public_html/MumbaiHackathon/volunteer/tryRegister.php on line 59
+[10-Mar-2018 10:16:17 UTC] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/thesoulitude/public_html/MumbaiHackathon/volunteer/tryRegister.php on line 59
+[10-Mar-2018 10:18:11 UTC] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/thesoulitude/public_html/MumbaiHackathon/volunteer/tryRegister.php on line 59
+[10-Mar-2018 10:32:10 UTC] PHP Fatal error:  Call to a member function query() on a non-object in /home/thesoulitude/public_html/MumbaiHackathon/volunteer/tryRegister.php on line 76
+[10-Mar-2018 10:53:23 UTC] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/thesoulitude/public_html/MumbaiHackathon/volunteer/tryRegister.php on line 74
+[10-Mar-2018 11:21:20 UTC] PHP Fatal error:  Call to a member function query() on a non-object in /home/thesoulitude/public_html/MumbaiHackathon/volunteer/login.php on line 58
+[10-Mar-2018 15:26:41 UTC] PHP Fatal error:  Call to a member function query() on a non-object in /home/thesoulitude/public_html/MumbaiHackathon/volunteer/loginTry.php on line 49
