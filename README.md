@@ -22,7 +22,7 @@ Including different payment methods
 
 - Configuring Backend Server
 
-For creating database on server run the follwoing command on Mysql console
+  For creating database on server run the follwoing command on Mysql console
 ```create database.sql```
 
 - Configuring GUI on Anroid emulator having atlleast SDK version 15 and above
@@ -32,14 +32,14 @@ For creating database on server run the follwoing command on Mysql console
 
 
 ## Built  With
-- [Android Studio 3.0](https://developer.android.com/studio/index.html)- 
-- [PHP 7] (http://php.net/downloads.php)
-- [Mysql] (https://dev.mysql.com/downloads/mysql/)
+- [Android Studio 3.0](https://developer.android.com/studio/index.html)
+- [PHP 7](http://php.net/downloads.php)
+- [Mysql](https://dev.mysql.com/downloads/mysql/)
 
 ## Authors
 Following are the list of contributors who contributed to this project:
-*Pranav Kant Gaur
-*Shaleen Jain
-*Wahdat Safia
+* Pranav Kant Gaur
+* Shaleen Jain
+* Wahdat Safia
 
 ## Acknowledgements
