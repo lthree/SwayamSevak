@@ -8,11 +8,14 @@ if (isset($_POST['idVolunteer']) && isset($_POST['loginToken'])) {
 	$loginToken = $_POST['loginToken'];
 	//echo $idVolunteer, $loginToken;
 	if(isLogin($idVolunteer,$loginToken,$con)==false){
-		echo "All Not Good";
+		//echo "All Not Good";
 		$response["error"] = True;
 		$response["error_msg"] = "Login failed please re-login";
 		echo json_encode($response);
 		exit(); 
+	}
+	else{
+	$con->close();
 	}
 }else{
 	// required post params is missing
@@ -25,11 +28,14 @@ if (isset($_POST['idVolunteer']) && isset($_POST['loginToken'])) {
 
 function isLogin($idVolunteer,$loginToken,$con){
 	$sql = "Select idVolunteer from volunteer where isOnline = 1 and loginToken ='".$loginToken."' and idVolunteer =$idVolunteer";
-	echo "\n".$sql."\n";
+	/*echo "\n".$sql."\n";
+	if($con){ 
+	echo "Connection exist";}*/
 	$result = $con->query($sql);
+	//echo json_encode($result);
         if ($result->num_rows > 0) {
             // user existed
-				echo "True it is";
+				//echo "True it is";
 				return true;
 			}
          else {
