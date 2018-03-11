@@ -9,6 +9,13 @@ Donors can also login and can see all the upcoming events and can show interests
 Next place suggestion with Maps to the volunteers for collecting donations from different places.
 Including different payment methods
 
+![alt text](https://raw.githubusercontent.com/pranavkantgaur/SwayamSevak/master/Screenshorts/Screenshot_20180311-104835.png "Home Screen")
+![alt text](https://raw.githubusercontent.com/pranavkantgaur/SwayamSevak/master/Screenshorts/Screenshot_20180311-105003.png "Login Screen")
+![alt text](https://raw.githubusercontent.com/pranavkantgaur/SwayamSevak/master/Screenshorts/Screenshot_20180311-105212.png "Register Screen")
+![alt text](https://raw.githubusercontent.com/pranavkantgaur/SwayamSevak/master/Screenshorts/Screenshot_20180311-105242.png "Account Screen")
+![alt text](https://raw.githubusercontent.com/pranavkantgaur/SwayamSevak/master/Screenshorts/Screenshot_20180311-105338.png "My Activities")
+
+
 ## Getting Started
 
 ## Prerequisites
