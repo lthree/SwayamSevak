@@ -4,6 +4,18 @@
 
 This android application is developed for volunteers to collect donations from donors from different places for different events. Events can be of different types, viz. charity, natural diaster help drive, some cultural or religious events and so on. Volunteers can login, view events, their contributions (past and ongoing contributions), unsubscribe from a particular event.
 
+
+<p><img alt="Image" src="Screenshorts/Screenshot_20180311-104835.png" height = 330 width = 210 title="Landing Screen"></p>
+<p><img alt="Image" src="Screenshorts/Screenshot_20180311-105003.png" height = 330 width = 210 title="Login screen"></p>
+
+<p><img alt="Image" src="Screenshorts/Screenshot_20180311-105212.png" height = 330 width = 210 title="Register screen"></p>
+
+<p><img alt="Image" src="Screenshorts/Screenshot_20180311-105242.png" height = 330 width = 210 title="User Home screen"></p>
+
+<p><img alt="Image" src="Screenshorts/Screenshot_20180311-105338.png" height = 330 width = 210 title="My tasks screen"></p>
+
+
+
 ###### Planned features
 Donors can also login and can see all the upcoming events and can show interests for donating in a particuar event. Management of all events, approving and removing volunteers by a Single authorized manager.
 Next place suggestion with Maps to the volunteers for collecting donations from different places.
