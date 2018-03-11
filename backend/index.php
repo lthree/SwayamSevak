@@ -1,1 +1,3 @@
-Shaleen please edit.
+<?php
+echo "buddhe tu gadha hai.";
+?>
