@@ -104,7 +104,7 @@ public class list_available_events extends AppCompatActivity {
             Event event = new Event();
             for (int j = 0; j < json_main_node.length(); j++) {
                 JSONObject json_child_node = json_main_node.getJSONObject(j);
-                event.set_event_title(json_child_node.optString("title");
+                event.set_event_title(json_child_node.optString("title"));
                 event.set_event_id(json_child_node.optInt("id"));
                 event_data_list.add(event);
             }
@@ -114,8 +114,8 @@ public class list_available_events extends AppCompatActivity {
                     Toast.LENGTH_SHORT).show();
         }
         // bind it to the adapter
-        ArrayAdapter<Event> event_list_adapter = new ArrayAdapter<Event>(this, event_data_list, R.id.event_item) ;
-        ListView event_list_view = findViewById(R.id.list_event_list_view);
+    /*    ArrayAdapter<Event> event_list_adapter = new ArrayAdapter<Event>(this, event_data_list, R.id.event_item) ;
+        ListView event_list_view = findViewById(R.id.list_events_list_view);
         event_list_view.setAdapter(event_list_adapter);
         event_list_view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -126,6 +126,6 @@ public class list_available_events extends AppCompatActivity {
                 startActivity(open_event_details_intent);
             }
         });
-    }
+    */}
 
 }

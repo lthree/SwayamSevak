@@ -1,4 +1,4 @@
-package com.example1.loginregapp;
+package com.example.pranav.swayamsevakclient;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -23,11 +23,6 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import com.example1.loginregapp.R;
-import com.example1.loginregapp.AppConfig;
-import com.example1.loginregapp.AppController;
-import com.example1.loginregapp.SessionManager;
 
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = RegistrationActivity.class.getSimpleName();

@@ -1,4 +1,4 @@
-package com.example.pranav.swayamsevakclient
+package com.example.pranav.swayamsevakclient;
 
 /**
  * Created by lenovo1 on 08-03-2018.
@@ -9,7 +9,7 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.util.Log;
 
-public class SessionManager {
+public class  SessionManager {
     // LogCat tag
     private static String TAG = SessionManager.class.getSimpleName();
 
