@@ -31,7 +31,7 @@
         <activity android:name=".volunteer_home" />
         <activity android:name=".volunteer_logout" />
         <activity android:name=".participant_details_updated" />
-        <activity android:name=".user_registration"></activity>
+        <activity android:name=".user_registration"/>
     </application>
 
 </manifest>
