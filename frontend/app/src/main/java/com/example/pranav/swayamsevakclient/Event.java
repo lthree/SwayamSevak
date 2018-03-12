@@ -20,9 +20,9 @@ public class Event {
     private float loction_longitude;
     private int event_type;
 
-    public Event(String event_title){
+    /*public Event(String event_title){
         title = event_title;
-    }
+    }*/
 
     public void set_event_title(String input_event_tile) {
         title = input_event_tile;

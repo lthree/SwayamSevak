@@ -20,7 +20,7 @@ public class EventAdapter extends ArrayAdapter<Event>{
     private ArrayList<Event> meventList;
 
     public EventAdapter(Context context, ArrayList<Event> event_list){
-        super(context, 0, this);
+        super(context, 0, event_list);
         mContext = context;
         meventList = event_list;
     }

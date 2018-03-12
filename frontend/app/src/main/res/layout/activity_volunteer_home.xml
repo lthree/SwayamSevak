@@ -7,51 +7,53 @@
     android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/target_current_textviews"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:id="@+id/target_current_textviews">
+        android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Current Funds"/>
             <TextView
-            android:id="@+id/show_current_funds_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Current Funds" />
+
+            <TextView
+                android:id="@+id/show_current_funds_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Target Funds"/>
+                android:text="Target Funds" />
 
             <TextView
                 android:id="@+id/show_target_funds_text_view"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </LinearLayout>
 
 
     </LinearLayout>
 
-    <!--- Insert map here --->
+    <!--- Insert map here -->
     <fragment xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/googleMap"
+        class="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/target_current_textviews"
-        class="com.google.android.gms.maps.SupportMapFragment" />
+        android:layout_below="@id/target_current_textviews" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -86,7 +88,7 @@
             android:id="@+id/volunteer_entered_location_edittext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="@string/volunteer_enter_location_hint_edittext">
+            android:hint="@string/volunteer_enter_location_hint_edittext"/>
     </LinearLayout>
 
 

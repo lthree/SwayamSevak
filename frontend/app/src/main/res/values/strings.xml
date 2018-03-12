@@ -38,4 +38,5 @@
     <string name="location_suggestion_message_textview">Suggestion</string>
     <string name="choosen_location_textview">Choosen</string>
     <string name="volunteer_enter_location_hint_edittext">Enter desired location</string>
+
 </resources>
