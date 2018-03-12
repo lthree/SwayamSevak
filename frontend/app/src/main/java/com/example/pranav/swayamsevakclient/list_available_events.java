@@ -30,6 +30,7 @@ public class list_available_events extends AppCompatActivity {
 
     private String event_details_url="http://thesoulitude.in/MumbaiHackathon/event/read.php";
     private String json_query_result;
+    private EventAdapter mEventAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,9 +115,9 @@ public class list_available_events extends AppCompatActivity {
                     Toast.LENGTH_SHORT).show();
         }
         // bind it to the adapter
-    /*    ArrayAdapter<Event> event_list_adapter = new ArrayAdapter<Event>(this, event_data_list, R.id.event_item) ;
+        mEventAdapter = new EventAdapter(this, event_data_list);
         ListView event_list_view = findViewById(R.id.list_events_list_view);
-        event_list_view.setAdapter(event_list_adapter);
+        event_list_view.setAdapter(mEventAdapter);
         event_list_view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -126,6 +127,6 @@ public class list_available_events extends AppCompatActivity {
                 startActivity(open_event_details_intent);
             }
         });
-    */}
+    }
 
 }
