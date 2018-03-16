@@ -24,6 +24,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 import java.util.ArrayList;
 
 public class list_available_events extends AppCompatActivity {
@@ -43,11 +44,13 @@ public class list_available_events extends AppCompatActivity {
 
         @Override
         protected String doInBackground(String... params){
-            SharedPreferences shared_preferences = getApplicationContext().getSharedPreferences("shared_preferences", 0);
-            shared_preferences.getString("session_key", null);
-            // TODO append session key and user id with HTTP request
+            SessionManager sessionManager = new SessionManager(getApplicationContext());
+            String loginToken = sessionManager.getLoginToken();
+            // TODO append loginToken and user id with HTTP request
             HttpClient get_event_data_client = new DefaultHttpClient();
             HttpPost http_post_request = new HttpPost(params[0]);
+            // http_post_request.addHeader(); ??
+
             try {
                 HttpResponse response = get_event_data_client.execute(http_post_request);
                 json_query_result = inputStreamToString(response.getEntity().getContent()).toString();
