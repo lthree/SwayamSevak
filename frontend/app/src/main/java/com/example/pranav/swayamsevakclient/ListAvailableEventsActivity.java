@@ -144,8 +144,8 @@ public class ListAvailableEventsActivity extends AppCompatActivity {
             for (int j = 0; j < json_main_node.length(); j++) {
                 Event event = new Event();
                 JSONObject json_child_node = json_main_node.getJSONObject(j);
-                event.set_event_title(json_child_node.optString("title"));
-                event.set_event_id(json_child_node.optInt("id"));
+                event.setEventTitle(json_child_node.optString("title"));
+                event.setEventId(json_child_node.optInt("id"));
                 event_data_list.add(event);
             }
         }
@@ -162,7 +162,7 @@ public class ListAvailableEventsActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Event event = event_data_list.get(i);
                 Intent open_event_details_intent = new Intent(getApplicationContext(), ShowEventDetailsActivity.class);
-                open_event_details_intent.putExtra("event_id", event.get_event_id());
+                open_event_details_intent.putExtra("event_id", event.getEventId());
                 startActivity(open_event_details_intent);
             }
         });

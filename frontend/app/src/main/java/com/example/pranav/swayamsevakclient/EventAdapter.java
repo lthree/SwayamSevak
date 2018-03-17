@@ -1,7 +1,6 @@
 package com.example.pranav.swayamsevakclient;
 
 import android.content.Context;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,7 +33,7 @@ public class EventAdapter extends ArrayAdapter<Event>{
 
         Event currentEvent = meventList.get(position);
         TextView event_title_textview = listItem.findViewById(R.id.event_title_item);
-        event_title_textview.setText(currentEvent.get_event_title());
+        event_title_textview.setText(currentEvent.getEventTitle());
 
         return listItem;
     }

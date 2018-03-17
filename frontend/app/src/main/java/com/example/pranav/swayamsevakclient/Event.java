@@ -2,58 +2,70 @@ package com.example.pranav.swayamsevakclient;
 
 /**
  * Created by pranav on 10/3/18.
+ * Models the concept of events available for volunteering.
  */
-
 public class Event {
     private int id;
     private String title;
-    private String start_date;
-    private String end_date;
-    private String start_time;
-    private String end_time;
-    private int mobile_number;
+    private String startDate;
+    private String endDate;
+    private String startTime;
+    private String endTime;
+    private int mobileNumber;
     private String venue;
-    private String event_details;
+    private String eventDetails;
     private byte[] photo;
-    private int admin_id;
-    private float location_lat;
-    private float loction_longitude;
-    private int event_type;
+    private int adminId;
+    private float locationLat;
+    private float locationLongitude;
+    private int eventType;
 
-    /*public Event(String event_title){
-        title = event_title;
-    }*/
 
-    public void set_event_title(String input_event_tile) {
+    /** Set method for event title
+     */
+    public void setEventTitle(String input_event_tile) {
         title = input_event_tile;
     }
 
-    public void set_event_details(String input_event_details){
-        event_details = input_event_details;
+    /** Set method for event details
+     */
+    public void setEventDetails(String input_event_details){
+        eventDetails = input_event_details;
     }
-
-    public void set_event_image(byte[] input_event_image) {
+    /** Set method for event image
+     */
+    public void setEventImage(byte[] input_event_image) {
         photo = input_event_image;
     }
 
-    public String get_event_title() {
+    /** Set method for event id
+     */
+    public void setEventId(int input_event_id) {
+        id = input_event_id;
+    }
+
+    /** Get method for event title
+     */
+    public String getEventTitle() {
         return title;
     }
 
-    public String get_event_details(){
-        return  event_details;
+    /** Get method for event details
+     */
+    public String getEventDetails(){
+        return eventDetails;
     }
 
-    public byte[] set_event_image() {
+    /** Get method for event image
+     */
+    public byte[] getEventImage() {
         return photo;
     }
 
-    public int get_event_id() {
+    /** Get method for event id
+     */
+    public int getEventId() {
         return id;
-    }
-
-    public void set_event_id(int input_event_id) {
-        id = input_event_id;
     }
 
 }
