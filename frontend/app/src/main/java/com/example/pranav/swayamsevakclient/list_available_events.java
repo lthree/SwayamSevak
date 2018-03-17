@@ -11,10 +11,17 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.squareup.okhttp.MediaType;
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.RequestBody;
+import com.squareup.okhttp.Response;
+
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -24,8 +31,12 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
+import java.nio.charset.UnsupportedCharsetException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class list_available_events extends AppCompatActivity {
 
@@ -44,12 +55,31 @@ public class list_available_events extends AppCompatActivity {
 
         @Override
         protected String doInBackground(String... params){
-            SessionManager sessionManager = new SessionManager(getApplicationContext());
+  /*          SessionManager sessionManager = new SessionManager(getApplicationContext());
             String loginToken = sessionManager.getLoginToken();
             // TODO append loginToken with HTTP request
             HttpClient get_event_data_client = new DefaultHttpClient();
             HttpPost http_post_request = new HttpPost(params[0]);
-            http_post_request.setHeader("loginToken", loginToken);
+            //http_post_request.setHeader("loginToken", loginToken);
+    //        http_post_request.setHeader("Content-Type", "application/x-www-form-urlencoded");
+
+            Map<String, String> stringWithStringPostBody = new HashMap<String, String>();
+
+            JSONObject postBody = new JSONObject();
+                stringWithStringPostBody.put("loginToken", loginToken);
+                postBody = new JSONObject(stringWithStringPostBody);
+
+                try {
+
+                    http_post_request.setEntity(new StringEntity(postBody.toString(), "UTF8"));
+
+                }
+                catch (Exception e){
+                    e.printStackTrace();
+                }
+
+
+
             try {
                 HttpResponse response = get_event_data_client.execute(http_post_request);
                 json_query_result = inputStreamToString(response.getEntity().getContent()).toString();
@@ -60,7 +90,26 @@ public class list_available_events extends AppCompatActivity {
         catch (IOException e){
             e.printStackTrace();
         }
-        return null;
+    */
+            OkHttpClient client = new OkHttpClient();
+
+            MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
+            RequestBody body = RequestBody.create(mediaType, "loginToken=2018-03-12%2018%3A23%3A1178");
+            Request request = new Request.Builder()
+                    .url("http://thesoulitude.in/MumbaiHackathon/event/read.php")
+                    .post(body)
+                    .addHeader("content-type", "application/x-www-form-urlencoded")
+                    .addHeader("cache-control", "no-cache")
+                    .addHeader("postman-token", "81e8ce5b-2670-839e-c8df-6a455d30781b")
+                    .build();
+            try {
+                Response response = client.newCall(request).execute();
+                json_query_result = response.body().string();
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+            return null;
         }
 
         private StringBuilder inputStreamToString(InputStream is) {
@@ -104,8 +153,9 @@ public class list_available_events extends AppCompatActivity {
             JSONArray json_main_node = json_response.optJSONArray("eventlist");
 
             // extract event and initialize Event array list
-            Event event = new Event();
+
             for (int j = 0; j < json_main_node.length(); j++) {
+                Event event = new Event();
                 JSONObject json_child_node = json_main_node.getJSONObject(j);
                 event.set_event_title(json_child_node.optString("title"));
                 event.set_event_id(json_child_node.optInt("id"));
