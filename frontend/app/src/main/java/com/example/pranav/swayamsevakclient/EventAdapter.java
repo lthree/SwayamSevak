@@ -11,8 +11,8 @@ import java.util.ArrayList;
 
 /**
  * Created by pranav on 12/3/18.
+ * Custom adapter for rendering event information
  */
-
 public class EventAdapter extends ArrayAdapter<Event>{
 
     private Context mContext;

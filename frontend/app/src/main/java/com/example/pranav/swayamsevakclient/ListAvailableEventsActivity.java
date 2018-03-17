@@ -42,42 +42,6 @@ public class ListAvailableEventsActivity extends AppCompatActivity {
 
         @Override
         protected String doInBackground(String... params){
-  /*          SessionManager sessionManager = new SessionManager(getApplicationContext());
-            String loginToken = sessionManager.getLoginToken();
-            // TODO append loginToken with HTTP request
-            HttpClient get_event_data_client = new DefaultHttpClient();
-            HttpPost http_post_request = new HttpPost(params[0]);
-            //http_post_request.setHeader("loginToken", loginToken);
-    //        http_post_request.setHeader("Content-Type", "application/x-www-form-urlencoded");
-
-            Map<String, String> stringWithStringPostBody = new HashMap<String, String>();
-
-            JSONObject postBody = new JSONObject();
-                stringWithStringPostBody.put("loginToken", loginToken);
-                postBody = new JSONObject(stringWithStringPostBody);
-
-                try {
-
-                    http_post_request.setEntity(new StringEntity(postBody.toString(), "UTF8"));
-
-                }
-                catch (Exception e){
-                    e.printStackTrace();
-                }
-
-
-
-            try {
-                HttpResponse response = get_event_data_client.execute(http_post_request);
-                json_query_result = inputStreamToString(response.getEntity().getContent()).toString();
-            }
-        catch (ClientProtocolException e){
-                e.printStackTrace();
-        }
-        catch (IOException e){
-            e.printStackTrace();
-        }
-    */
             OkHttpClient client = new OkHttpClient();
 
             MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
