@@ -63,25 +63,6 @@ public class ListAvailableEventsActivity extends AppCompatActivity {
             return null;
         }
 
-        private StringBuilder inputStreamToString(InputStream is) {
-            String rLine = "";
-            StringBuilder answer = new StringBuilder();
-            BufferedReader rd = new BufferedReader(new InputStreamReader(is));
-
-            try {
-                while ((rLine = rd.readLine()) != null) {
-                    answer.append(rLine);
-                }
-            }
-
-            catch (IOException e) {
-                // e.printStackTrace();
-                Toast.makeText(getApplicationContext(),
-                        "Error..." + e.toString(), Toast.LENGTH_LONG).show();
-            }
-            return answer;
-        }
-
         @Override
         public void onPostExecute(String result){
             display_event_list();
