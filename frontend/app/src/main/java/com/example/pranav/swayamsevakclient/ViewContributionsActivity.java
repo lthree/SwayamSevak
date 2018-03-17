@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class view_contributions extends AppCompatActivity {
+public class ViewContributionsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +18,7 @@ public class view_contributions extends AppCompatActivity {
         back_from_contributions_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent go_back_to_contributor_home_intent = new Intent(getApplicationContext(), participant_home_page.class);
+                Intent go_back_to_contributor_home_intent = new Intent(getApplicationContext(), ParticipantHomePageActivity.class);
                 startActivity(go_back_to_contributor_home_intent);
             }
         });

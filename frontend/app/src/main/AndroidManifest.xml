@@ -28,21 +28,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".participant_home_page" />
-        <activity android:name=".list_available_events" />
-        <activity android:name=".show_event_details" />
-        <activity android:name=".donate_activity" />
-        <activity android:name=".donor_details_added" />
-        <activity android:name=".volunteer_adds_donor" />
-        <activity android:name=".volunteer_after_donor_added" />
-        <activity android:name=".view_contributions" />
-        <activity android:name=".update_participant_details" />
-        <activity android:name=".participant_unsubscribe" />
-        <activity android:name=".participant_confirm_unsubscription" />
-        <activity android:name=".participant_unsubscribe_status" />
-        <activity android:name=".volunteer_home" />
-        <activity android:name=".volunteer_logout" />
-        <activity android:name=".participant_details_updated" />
+        <activity android:name=".ParticipantHomePageActivity" />
+        <activity android:name=".ListAvailableEventsActivity" />
+        <activity android:name=".ShowEventDetailsActivity" />
+        <activity android:name=".DonateActivity" />
+        <activity android:name=".DonorDetailsAddedActivity" />
+        <activity android:name=".VolunteerAddsDonorActivity" />
+        <activity android:name=".VolunteerAfterDonorAddedActivity" />
+        <activity android:name=".ViewContributionsActivity" />
+        <activity android:name=".UpdateParticipantDetailsActivity" />
+        <activity android:name=".ParticipantUnsubscribeActivity" />
+        <activity android:name=".ParticipantConfirmUnsubscriptionActivity" />
+        <activity android:name=".ParticipantUnsubscribeStatusActivity" />
+        <activity android:name=".VolunteerHomeActivity" />
+        <activity android:name=".VolunteerLogoutActivity" />
+        <activity android:name=".ParticipantDetailsUpdatedActivity" />
         <activity android:name=".RegistrationActivity"/>
         <activity android:name=".HomeActivity"/>
         <activity android:name=".LoginActivity"/>

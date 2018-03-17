@@ -2,10 +2,8 @@ package com.example.pranav.swayamsevakclient;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -17,7 +15,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -55,7 +52,7 @@ public class LoginActivity extends AppCompatActivity {
         // Check if user is already logged in or not
         if (session.isLoggedIn()) {
             // User is already logged in. Take him to main activity
-            Intent intent = new Intent(LoginActivity.this, participant_home_page.class);
+            Intent intent = new Intent(LoginActivity.this, ParticipantHomePageActivity.class);
             startActivity(intent);
             //finish();
         }

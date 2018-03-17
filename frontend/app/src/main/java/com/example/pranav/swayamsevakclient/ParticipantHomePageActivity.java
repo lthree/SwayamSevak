@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class participant_home_page extends AppCompatActivity {
+public class ParticipantHomePageActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +17,7 @@ public class participant_home_page extends AppCompatActivity {
         view_events.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent show_available_events_intent = new Intent(getApplicationContext(), list_available_events.class);
+                Intent show_available_events_intent = new Intent(getApplicationContext(), ListAvailableEventsActivity.class);
                 startActivity(show_available_events_intent);
             }
         });
@@ -26,7 +26,7 @@ public class participant_home_page extends AppCompatActivity {
         view_contributions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent view_contributions_intent = new Intent(getApplicationContext(), view_contributions.class);
+                Intent view_contributions_intent = new Intent(getApplicationContext(), ViewContributionsActivity.class);
                 startActivity(view_contributions_intent);
             }
         });
@@ -35,7 +35,7 @@ public class participant_home_page extends AppCompatActivity {
         update_participant_details.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent update_participant_info_intent = new Intent(getApplicationContext(), update_participant_details.class);
+                Intent update_participant_info_intent = new Intent(getApplicationContext(), UpdateParticipantDetailsActivity.class);
                 startActivity(update_participant_info_intent);
             }
         });
@@ -44,7 +44,7 @@ public class participant_home_page extends AppCompatActivity {
         unsubscribe_participant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent unsubscribe_participant_intent = new Intent(getApplicationContext(), participant_unsubscribe.class);
+                Intent unsubscribe_participant_intent = new Intent(getApplicationContext(), ParticipantUnsubscribeActivity.class);
                 startActivity(unsubscribe_participant_intent);
             }
         });

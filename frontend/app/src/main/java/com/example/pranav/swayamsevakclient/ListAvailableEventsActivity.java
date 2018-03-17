@@ -1,13 +1,11 @@
 package com.example.pranav.swayamsevakclient;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -17,12 +15,6 @@ import com.squareup.okhttp.Request;
 import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -31,14 +23,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
-import java.net.HttpURLConnection;
-import java.nio.charset.UnsupportedCharsetException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
-public class list_available_events extends AppCompatActivity {
+public class ListAvailableEventsActivity extends AppCompatActivity {
 
     private String event_details_url="http://thesoulitude.in/MumbaiHackathon/event/read.php";
     private String json_query_result;
@@ -174,7 +161,7 @@ public class list_available_events extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Event event = event_data_list.get(i);
-                Intent open_event_details_intent = new Intent(getApplicationContext(), show_event_details.class);
+                Intent open_event_details_intent = new Intent(getApplicationContext(), ShowEventDetailsActivity.class);
                 open_event_details_intent.putExtra("event_id", event.get_event_id());
                 startActivity(open_event_details_intent);
             }

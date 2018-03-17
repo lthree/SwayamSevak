@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class donate_activity extends AppCompatActivity {
+public class DonateActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +23,7 @@ public class donate_activity extends AppCompatActivity {
                 // send that information to DB
                 // TODO
                 // invoke status activity
-                Intent submit_donor_info_intent = new Intent(getApplicationContext(), donor_details_added.class);
+                Intent submit_donor_info_intent = new Intent(getApplicationContext(), DonorDetailsAddedActivity.class);
                 startActivity(submit_donor_info_intent);
             }
         });

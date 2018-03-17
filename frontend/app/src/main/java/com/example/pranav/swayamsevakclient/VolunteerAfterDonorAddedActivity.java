@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class volunteer_after_donor_added extends AppCompatActivity {
+public class VolunteerAfterDonorAddedActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +25,7 @@ public class volunteer_after_donor_added extends AppCompatActivity {
     ask_add_more_in_this_locality_button.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            Intent open_add_donor_intent = new Intent(getApplicationContext(), volunteer_adds_donor.class);
+            Intent open_add_donor_intent = new Intent(getApplicationContext(), VolunteerAddsDonorActivity.class);
             startActivity(open_add_donor_intent);
         }
     });
@@ -35,7 +35,7 @@ public class volunteer_after_donor_added extends AppCompatActivity {
     volunteer_leaves_locality_button.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            Intent open_volunteer_home_intent = new Intent(getApplicationContext(), volunteer_home.class);
+            Intent open_volunteer_home_intent = new Intent(getApplicationContext(), VolunteerHomeActivity.class);
             startActivity(open_volunteer_home_intent);
         }
     });

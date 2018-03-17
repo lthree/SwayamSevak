@@ -3,11 +3,11 @@ package com.example.pranav.swayamsevakclient;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class volunteer_adds_donor extends AppCompatActivity {
+public class VolunteerLogoutActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_volunteer_adds_donor);
+        setContentView(R.layout.activity_volunteer_logout);
     }
 }

@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class show_event_details extends AppCompatActivity {
+public class ShowEventDetailsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +24,7 @@ public class show_event_details extends AppCompatActivity {
         donate_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent open_donate_page_intent = new Intent(getApplicationContext(), donate_activity.class);
+                Intent open_donate_page_intent = new Intent(getApplicationContext(), DonateActivity.class);
                 startActivity(open_donate_page_intent);
             }
         });
@@ -33,7 +33,7 @@ public class show_event_details extends AppCompatActivity {
         volunteer_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent open_volunteer_page_intent = new Intent(getApplicationContext(), volunteer_home.class);
+                Intent open_volunteer_page_intent = new Intent(getApplicationContext(), VolunteerHomeActivity.class);
                 startActivity(open_volunteer_page_intent);
             }
         });

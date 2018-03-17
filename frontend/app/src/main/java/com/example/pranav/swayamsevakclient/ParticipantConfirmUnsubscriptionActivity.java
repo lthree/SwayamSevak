@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class participant_confirm_unsubscription extends AppCompatActivity {
+public class ParticipantConfirmUnsubscriptionActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +22,7 @@ public class participant_confirm_unsubscription extends AppCompatActivity {
         public void onClick(View view) {
             // Notifies status of participant in DB
             // TODO
-            Intent open_successful_unsubsription_message_intent = new Intent(getApplicationContext(), participant_unsubscribe_status.class);
+            Intent open_successful_unsubsription_message_intent = new Intent(getApplicationContext(), ParticipantUnsubscribeStatusActivity.class);
             startActivity(open_successful_unsubsription_message_intent);
         }
     });
@@ -31,7 +31,7 @@ public class participant_confirm_unsubscription extends AppCompatActivity {
     revert_unsubscription_button.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            Intent revert_unsubscription_intent = new Intent(getApplicationContext(), participant_unsubscribe.class);
+            Intent revert_unsubscription_intent = new Intent(getApplicationContext(), ParticipantUnsubscribeActivity.class);
             startActivity(revert_unsubscription_intent);
         }
     });

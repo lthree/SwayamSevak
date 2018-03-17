@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class update_participant_details extends AppCompatActivity {
+public class UpdateParticipantDetailsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +25,7 @@ public class update_participant_details extends AppCompatActivity {
                 // DB message for updating participant information
                 // TODO
                 // invoke success screen
-                Intent open_participant_details_updated_screen_intent = new Intent(getApplicationContext(), participant_details_updated.class);
+                Intent open_participant_details_updated_screen_intent = new Intent(getApplicationContext(), ParticipantDetailsUpdatedActivity.class);
                 startActivity(open_participant_details_updated_screen_intent);
             }
         });

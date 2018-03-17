@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class volunteer_home extends AppCompatActivity {
+public class VolunteerHomeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +28,7 @@ public class volunteer_home extends AppCompatActivity {
         volunteer_go_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent open_add_donor_intent = new Intent(getApplicationContext(), volunteer_adds_donor.class);
+                Intent open_add_donor_intent = new Intent(getApplicationContext(), VolunteerAddsDonorActivity.class);
                 startActivity(open_add_donor_intent);
             }
         });
@@ -39,7 +39,7 @@ public class volunteer_home extends AppCompatActivity {
         volunteer_logout_button.setOnClickListener(new View.OnClickListener() {
                                                        @Override
                                                        public void onClick(View view) {
-                                                           Intent volunteer_logout_intent = new Intent(getApplicationContext(), volunteer_logout.class);
+                                                           Intent volunteer_logout_intent = new Intent(getApplicationContext(), VolunteerLogoutActivity.class);
                                                            startActivity(volunteer_logout_intent);
                                                        }
                                                    });
