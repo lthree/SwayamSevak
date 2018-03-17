@@ -46,10 +46,10 @@ public class list_available_events extends AppCompatActivity {
         protected String doInBackground(String... params){
             SessionManager sessionManager = new SessionManager(getApplicationContext());
             String loginToken = sessionManager.getLoginToken();
-            // TODO append loginToken and user id with HTTP request
+            // TODO append loginToken with HTTP request
             HttpClient get_event_data_client = new DefaultHttpClient();
             HttpPost http_post_request = new HttpPost(params[0]);
-            http_post_request.setHeader("Authorization", "Bearer " + loginToken);
+            http_post_request.setHeader("loginToken", loginToken);
             try {
                 HttpResponse response = get_event_data_client.execute(http_post_request);
                 json_query_result = inputStreamToString(response.getEntity().getContent()).toString();
