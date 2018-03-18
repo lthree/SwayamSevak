@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/list_item"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    >
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="TextView" />
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/event_image_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@mipmap/ic_launcher"/>
+        android:layout_above="@+id/event_description_text_view"
+        android:layout_alignParentTop="true"
+        android:src="@mipmap/ic_launcher"
+
+        />
 
     <TextView
         android:id="@+id/event_description_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        />
+        android:text="Event descriptiom here"
+        android:textSize="16sp"
+         />
 
     <Button
         android:id="@+id/volunteer_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+
+        android:layout_below="@+id/event_description_text_view"
         android:text="@string/volunteer_button_text" />
 
     <Button
         android:id="@+id/donate_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="@string/donate_button_text" />
 
-</LinearLayout>
+        android:layout_toRightOf="@+id/volunteer_button"
+        android:layout_below="@+id/event_description_text_view"
+        android:text="@string/donate_button_text" />
+</RelativeLayout>

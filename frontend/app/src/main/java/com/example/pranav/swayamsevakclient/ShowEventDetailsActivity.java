@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class ShowEventDetailsActivity extends AppCompatActivity {
 
@@ -20,6 +22,18 @@ public class ShowEventDetailsActivity extends AppCompatActivity {
         // DB query to fetch specific event details
         // TODO
         // invoke donate activity if donate button pressed
+
+        ImageView eventImageView = findViewById(R.id.event_image_view);
+       // eventImageView.setImageResource(R.drawable.volunteering); // TODO get it from DB and store it in RAM
+       // eventImageView.setVisibility(View.VISIBLE);
+
+        // TODO initialize from event details
+        String eventDetailsText = new String(); // TODO initialize from DB
+
+        TextView eventDescriptionTextView  = findViewById(R.id.event_description_text_view);
+        eventDescriptionTextView.setText(eventDetailsText);
+
+        // Handle buttons
         Button donate_button = (Button) findViewById(R.id.donate_button);
         donate_button.setOnClickListener(new View.OnClickListener() {
             @Override

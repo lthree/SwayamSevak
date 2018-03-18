@@ -19,17 +19,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class ListAvailableEventsActivity extends AppCompatActivity {
 
     private String event_details_url="http://thesoulitude.in/MumbaiHackathon/event/read.php";
     private String json_query_result;
-    private EventAdapter mEventAdapter;
+    private EventListAdapter mEventAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,7 +95,7 @@ public class ListAvailableEventsActivity extends AppCompatActivity {
                     Toast.LENGTH_SHORT).show();
         }
         // bind it to the adapter
-        mEventAdapter = new EventAdapter(this, event_data_list);
+        mEventAdapter = new EventListAdapter(this, event_data_list);
         ListView event_list_view = findViewById(R.id.list_events_list_view);
         event_list_view.setAdapter(mEventAdapter);
         event_list_view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
