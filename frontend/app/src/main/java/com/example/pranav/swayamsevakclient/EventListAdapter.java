@@ -13,12 +13,12 @@ import java.util.ArrayList;
  * Created by pranav on 12/3/18.
  * Custom adapter for rendering event information
  */
-public class EventAdapter extends ArrayAdapter<Event>{
+public class EventListAdapter extends ArrayAdapter<Event>{
 
     private Context mContext;
     private ArrayList<Event> meventList;
 
-    public EventAdapter(Context context, ArrayList<Event> event_list){
+    public EventListAdapter(Context context, ArrayList<Event> event_list){
         super(context, 0, event_list);
         mContext = context;
         meventList = event_list;
