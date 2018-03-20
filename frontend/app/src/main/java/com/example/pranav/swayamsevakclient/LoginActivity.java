@@ -124,9 +124,9 @@ public class LoginActivity extends AppCompatActivity {
                         session.setLogintoken(loginToken);
 
                         // Launch main activity
-                        Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
-                        intent.putExtra("name", name);
-                        intent.putExtra("email",email);
+                        Intent intent = new Intent(LoginActivity.this,ParticipantHomePageActivity.class);
+                        //intent.putExtra("name", name);
+                        //intent.putExtra("email",email);
                         startActivity(intent);
 
                     } else {
