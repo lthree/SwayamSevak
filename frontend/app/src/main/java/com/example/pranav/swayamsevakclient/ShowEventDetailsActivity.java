@@ -42,7 +42,7 @@ public class ShowEventDetailsActivity extends AppCompatActivity {
 
         // DB query to fetch specific event details
         // Creates JSON object Post request
-        StringRequest eventListRequest = new StringRequest(Request.Method.POST, AppConfig.URL_EVENT_DETAILS, new Response.Listener<String>() {
+        StringRequest eventDetailsRequest = new StringRequest(Request.Method.POST, AppConfig.URL_EVENT_DETAILS, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 json_query_result = response;
@@ -73,33 +73,9 @@ public class ShowEventDetailsActivity extends AppCompatActivity {
         };
 
 
-        AppController.getInstance().addToRequestQueue(eventListRequest);
-
-        // invoke donate activity if donate button pressed
-
-        ImageView eventImageView = findViewById(R.id.event_image_view);
-       // eventImageView.setImageResource(R.drawable.volunteering); // TODO get it from DB and store it in RAM
-       // eventImageView.setVisibility(View.VISIBLE);
+        AppController.getInstance().addToRequestQueue(eventDetailsRequest);
 
 
-        // Handle buttons
-        Button donate_button = (Button) findViewById(R.id.donate_button);
-        donate_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent open_donate_page_intent = new Intent(getApplicationContext(), DonateActivity.class);
-                startActivity(open_donate_page_intent);
-            }
-        });
-        // invoke volunteer activity if volunteer button pressed
-        Button volunteer_button = (Button) findViewById(R.id.volunteer_button);
-        volunteer_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent open_volunteer_page_intent = new Intent(getApplicationContext(), VolunteerHomeActivity.class);
-                startActivity(open_volunteer_page_intent);
-            }
-        });
     }
 
 
@@ -124,6 +100,35 @@ public class ShowEventDetailsActivity extends AppCompatActivity {
 
             TextView eventDescriptionTextView  = findViewById(R.id.event_description_text_view);
             eventDescriptionTextView.setText(event_data_list.get(0).getEventDetails());
+
+
+            // invoke donate activity if donate button pressed
+
+            ImageView eventImageView = findViewById(R.id.event_image_view);
+            // eventImageView.setImageResource(R.drawable.volunteering); // TODO get it from DB and store it in RAM
+            // eventImageView.setVisibility(View.VISIBLE);
+
+
+            // Handle buttons
+            Button donate_button = (Button) findViewById(R.id.donate_button);
+            donate_button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent open_donate_page_intent = new Intent(getApplicationContext(), DonateActivity.class);
+                    startActivity(open_donate_page_intent);
+                }
+            });
+            // invoke volunteer activity if volunteer button pressed
+            Button volunteer_button = (Button) findViewById(R.id.volunteer_button);
+            volunteer_button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent open_volunteer_page_intent = new Intent(getApplicationContext(), VolunteerHomeActivity.class);
+                    startActivity(open_volunteer_page_intent);
+                }
+            });
+
+
 
         }
         catch (JSONException e){
