@@ -97,7 +97,7 @@ public class ListAvailableEventsActivity extends AppCompatActivity {
                 Event event = new Event();
                 JSONObject json_child_node = json_main_node.getJSONObject(j);
                 event.setEventTitle(json_child_node.optString("title"));
-                event.setEventId(json_child_node.optInt("id"));
+                event.setEventId(json_child_node.optInt("idEvent"));
                 event_data_list.add(event);
             }
         }
