@@ -8,9 +8,17 @@ import android.text.TextUtils;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
-    public class AppController extends Application {
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class AppController extends Application {
 
         public static final String TAG = AppController.class.getSimpleName();
 
@@ -51,5 +59,6 @@ import com.android.volley.toolbox.Volley;
                 mRequestQueue.cancelAll(tag);
             }
         }
+
     }
 

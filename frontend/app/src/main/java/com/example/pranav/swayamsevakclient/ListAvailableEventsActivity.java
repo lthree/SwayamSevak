@@ -9,23 +9,32 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.squareup.okhttp.MediaType;
-import com.squareup.okhttp.OkHttpClient;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.RequestBody;
-import com.squareup.okhttp.Response;
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.VolleyError;
+import com.android.volley.Request.Method;
+import com.android.volley.Response;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import static com.example.pranav.swayamsevakclient.AppConfig.URL_LIST_EVENTS;
 
 public class ListAvailableEventsActivity extends AppCompatActivity {
 
-    private String event_details_url="http://thesoulitude.in/MumbaiHackathon/event/read.php";
     private String json_query_result;
     private EventListAdapter mEventAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,43 +43,45 @@ public class ListAvailableEventsActivity extends AppCompatActivity {
         access_event_data_and_show();
     }
 
-    private class JsonReadTask extends AsyncTask<String, Void, String> {
-
-        @Override
-        protected String doInBackground(String... params){
-            OkHttpClient client = new OkHttpClient();
-
-            MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
-            RequestBody body = RequestBody.create(mediaType, "loginToken=2018-03-12%2018%3A23%3A1178");
-            Request request = new Request.Builder()
-                    .url("http://thesoulitude.in/MumbaiHackathon/event/read.php")
-                    .post(body)
-                    .addHeader("content-type", "application/x-www-form-urlencoded")
-                    .addHeader("cache-control", "no-cache")
-                    .addHeader("postman-token", "81e8ce5b-2670-839e-c8df-6a455d30781b")
-                    .build();
-            try {
-                Response response = client.newCall(request).execute();
-                json_query_result = response.body().string();
-            }
-            catch (Exception e){
-                e.printStackTrace();
-            }
-            return null;
-        }
-
-        @Override
-        public void onPostExecute(String result){
-            display_event_list();
-        }
-    }
-
-
     // generates DB request to access event data, once received it renders the content.
     public void access_event_data_and_show(){
-        JsonReadTask task = new JsonReadTask();
-        task.execute(new String[] {event_details_url});
 
+        // Creates JSON object Post request
+        StringRequest eventListRequest = new StringRequest(Method.POST, AppConfig.URL_LIST_EVENTS, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                json_query_result = response;
+                display_event_list();
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        }) {
+
+            @Override
+            public Map<String, String> getParams(){
+                SessionManager sessionManager = new SessionManager(getApplicationContext());
+                Map<String, String> params  = new HashMap<String, String>();
+                params.put("loginToken", sessionManager.getLoginToken());
+                return params;
+            }
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String,String> params = new HashMap<String, String>();
+                params.put("Content-Type","application/x-www-form-urlencoded");
+                return params;
+            }
+        };
+
+        // Fetches session id
+        //SessionManager sessionManager = new SessionManager(getApplicationContext());
+        //eventListRequest.setLoginTokenInRequestHeader(sessionManager.getLoginToken()); // adds session information
+        //eventListRequest.setLoginTokenInRequestHeader("2018-03-12%2018%3A23%3A1178");
+        // Attaches the created request to Volley queue
+        AppController.getInstance().addToRequestQueue(eventListRequest);
     }
 
     public void display_event_list(){

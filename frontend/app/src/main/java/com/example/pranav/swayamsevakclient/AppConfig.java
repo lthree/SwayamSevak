@@ -12,4 +12,10 @@ public class AppConfig {
     // Server user register url
     //public static String URL_REGISTER = "http://10.0.6.157/android_login_api/register.php";
     public static String URL_REGISTER ="http://www.thesoulitude.in/MumbaiHackathon/volunteer/register.php";
+
+    // Server event list url
+    public static String URL_LIST_EVENTS= "http://thesoulitude.in/MumbaiHackathon/event/readAllEvents.php";
+
+    // Server event details url
+    public static String URL_EVENT_DETAILS = "http://thesoulitude.in/MumbaiHackathon/event/readEventById.php";
 }
