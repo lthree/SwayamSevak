@@ -10,7 +10,7 @@ public class ParticipantUnsubscribeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_participant_unsubscribe);
 
-        // show list of events in which partipant contributes
+        // show list of events in which participant contributes
         // TODO
         // list items are clickable
         // TODO

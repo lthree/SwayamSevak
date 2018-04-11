@@ -27,7 +27,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-    compile 'com.mcxiaoke.volley:library:1.0.19'
-    compile 'com.google.android.gms:play-services:6.1.+'
-    compile 'com.squareup.okhttp:okhttp:2.5.0'
+    implementation 'com.mcxiaoke.volley:library:1.0.19'
+    implementation 'com.google.android.gms:play-services:6.1.+'
+    implementation 'com.squareup.okhttp:okhttp:2.5.0'
 }
