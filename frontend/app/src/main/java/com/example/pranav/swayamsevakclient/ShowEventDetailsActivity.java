@@ -75,7 +75,28 @@ public class ShowEventDetailsActivity extends AppCompatActivity {
 
         AppController.getInstance().addToRequestQueue(eventDetailsRequest);
 
+        // Fetch event image TODO
+        /* ImageView mImageView;
+        String url = "http://i.imgur.com/7spzG.png";
+        mImageView = (ImageView) findViewById(R.id.myImage);
+...
 
+// Retrieves an image specified by the URL, displays it in the UI.
+        ImageRequest request = new ImageRequest(url,
+                new Response.Listener<Bitmap>() {
+                    @Override
+                    public void onResponse(Bitmap bitmap) {
+                        mImageView.setImageBitmap(bitmap);
+                    }
+                }, 0, 0, null,
+                new Response.ErrorListener() {
+                    public void onErrorResponse(VolleyError error) {
+                        mImageView.setImageResource(R.drawable.image_load_error);
+                    }
+                });
+// Access the RequestQueue through your singleton class.
+        MySingleton.getInstance(this).addToRequestQueue(request);
+    */
     }
 
 
