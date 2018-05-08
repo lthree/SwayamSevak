@@ -18,4 +18,7 @@ public class AppConfig {
 
     // Server event details url
     public static String URL_EVENT_DETAILS = "http://thesoulitude.in/MumbaiHackathon/event/readEventById.php";
+
+    // Server donor details add url
+    public static String URL_ADD_DONOR_DETAILS = "http://thesoulitude.in/MumbaiHackathon/event/readEventById.php";
 }
