@@ -1,38 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/list_item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     >
 
-    <TextView
-        android:id="@+id/donor_details_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Donor details view" />
-
-
-    <EditText
-        android:id="@+id/donor_enters_info_edittext"
-        android:layout_height="wrap_content"
+    <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:id = "@+id/donorNameTextView"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:text = "Donor name"
+            />
+        <EditText
+            android:id="@+id/donorNameEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Name" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <TextView
+        android:id = "@+id/donorAddressTextView"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:text = "Enter address"
         />
-
-    <Button
-        android:id="@+id/submit_donor_details_button"
+    <EditText
+        android:id="@+id/donorAddressEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="@string/volunteer_button_text" />
+        android:text="Address" />
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/donate_button"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="@string/donate_button_text" />
+        android:orientation="horizontal">
+        <TextView
+            android:id = "@+id/donorContactNumberTextView"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:text = "Enter contact number"
+            />
+        <EditText
+            android:id="@+id/donorContactNumberEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Address" />
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id = "@+id/donorEmailTextView"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:text = "Enter email ID"
+            />
+        <EditText
+            android:id="@+id/donorEmailEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Address" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id = "@+id/donorRashiTextView"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:text = "Select Rashi"
+            />
+        <Spinner
+            android:id="@+id/donorRashiSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/rashi_arrays"
+            android:prompt="@string/rashi_prompt" />
+        <Spinner
+            android:id="@+id/donorStarSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/star_arrays"
+            android:prompt="@string/star_prompt" />
+        <Spinner
+            android:id="@+id/donorGotraSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/gotra_arrays"
+            android:prompt="@string/gotra_prompt" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id = "@+id/donorAmountTextView"
+                android:layout_width = "wrap_content"
+                android:layout_height = "wrap_content"
+                android:text = "Enter amount"
+                />
+            <EditText
+                android:id="@+id/donorAmountEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Amount" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/donate_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/donate_button_text" />
+
+    </LinearLayout>
 </LinearLayout>
