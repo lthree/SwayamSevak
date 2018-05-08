@@ -5,10 +5,27 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     >
+    <Button
+        android:id = "@+id/add_more_in_this_locality_button"
+        android:layout_width = "match_parent"
+        android:layout_height = "wrap_content"
+        android:text = "@string/ask_add_more_button"/>
+    <Button
+        android:id = "@+id/leave_this_locality_button"
+        android:layout_width = "match_parent"
+        android:layout_height = "wrap_content"
+        android:text = "@string/leave_button"/>
+
+    <Button
+        android:id = "@+id/current_funds_button"
+        android:layout_width = "match_parent"
+        android:layout_height = "wrap_content"
+        android:text = "@string/query_current_funds_button" />
+
     <TextView
-        android:id="@+id/details_added_message"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/details_added_message_text_view"
-        />
+        android:id = "+@id/current_funds_textview"
+        android:layout_width = "match_parent"
+        android:layout_height = "wrap_content"
+        android:textStyle = "bold"/>
+
 </LinearLayout>
