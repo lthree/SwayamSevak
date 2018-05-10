@@ -63,6 +63,11 @@ public class DonateActivity extends AppCompatActivity {
                         public void onResponse(JSONObject response) {
                             Log.d(TAG, response.toString());
                             Toast.makeText(DonateActivity.this, "Details successfully submitted!!", Toast.LENGTH_SHORT).show();
+
+                            // invoke status activity
+                            Intent submit_donor_info_intent = new Intent(getApplicationContext(), DonorDetailsAddedActivity.class);
+                            startActivity(submit_donor_info_intent);
+
                         }
                     }, new Response.ErrorListener() {
                         @Override
@@ -70,15 +75,17 @@ public class DonateActivity extends AppCompatActivity {
                             VolleyLog.d(TAG, "Error: " + error.getMessage());
                         }
                     });
+                    AppController.getInstance().addToRequestQueue(sendDonorDataRequest); // adds the request to the queue
                 }
                 catch (JSONException e){
                     e.printStackTrace();
                 }
 
-                // invoke status activity
-                Intent submit_donor_info_intent = new Intent(getApplicationContext(), DonorDetailsAddedActivity.class);
-                startActivity(submit_donor_info_intent);
+
             }
-        });
+        }
+
+        );
+
         }
     }
