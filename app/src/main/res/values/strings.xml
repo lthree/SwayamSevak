@@ -1,0 +1,13 @@
+<resources>
+        <string name="app_name">VolunteerHome</string>
+        <string name="title_activity_maps">Volunteer Home</string>
+        <string name="btn_checkin">Check In</string>
+        <string name="btn_checkout">Check Out</string>
+        <string name="CheckOut">Check Out</string>
+        <string name="CheckIn">Check In</string>
+        <string name="targetID">Target Fund</string>
+        <string name="currentID">Current Fund</string>
+        <string name="targetex">Target \u003A %1$s</string>
+        <string name="currentex">Current \u003A %1$s</string>
+
+</resources>
