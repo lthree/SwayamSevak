@@ -17,7 +17,7 @@ public class AppConfig {
     public static String URL_LIST_EVENTS= "http://thesoulitude.in/MumbaiHackathon/event/readAllEvents.php";
 
 
-    // Server event list url
+    // Server participant-specific event list url
     public static String URL_LIST_PARTICIPANT_EVENTS= "http://thesoulitude.in/MumbaiHackathon/event/readAllEvents.php";
 
     // Server event details url
@@ -28,4 +28,7 @@ public class AppConfig {
 
     // Server participant details update url
     public static String URL_UPDATE_PARTICIPANT_DETAILS = "http://thesoulitude.in/MumbaiHackathon/event/readEventById.php";
+
+    // Server participant unsubscribe url
+    public static String URL_UNSUBSCRIBE_PARTICIPANT_FROM_EVENT = "http://thesoulitude.in/MumbaiHackathon/event/readEventById.php";
 }

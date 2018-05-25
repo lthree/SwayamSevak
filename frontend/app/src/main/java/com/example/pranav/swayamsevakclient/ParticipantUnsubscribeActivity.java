@@ -3,6 +3,7 @@ package com.example.pranav.swayamsevakclient;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -12,6 +13,8 @@ import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 
 import org.json.JSONArray;
@@ -99,9 +102,27 @@ public class ParticipantUnsubscribeActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Event event = participant_event_data_list.get(i);
-                // TODO
+
                 // send event id and volunteer id to DB controller
-            }
+                JSONObject participantDetails = new JSONObject();
+                participantDetails.put("participantid", );
+                participantDetails.put("eventid", );
+                // initialize unsubscribe request object
+                JsonObjectRequest participantUnsubscriptionRequest = new JsonObjectRequest(Request.Method.POST, AppConfig.URL_UNSUBSCRIBE_PARTICIPANT_FROM_EVENT, participantDetails, new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Toast.makeText(ParticipantUnsubscribeActivity.this, "You are unsubscribed from the event!!", Toast.LENGTH_SHORT).show();
+                    }, new Response.ErrorListener(){
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            VolleyLog.d(TAG, "Error in unsubscription: " + error.getMessage());
+                        }
+                        }
+                    );
+                AppController.getInstance().addToRequestQueue(participantUnsubscriptionRequest);
+
+
+
         });
     }
 
