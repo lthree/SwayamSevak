@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array
+        name="moon_sign_array">
+        <item>@string/aries_moon_sign</item>
+        <item>@string/tauras_moon_sign</item>
+        <item>@string/gemini_moon_sign</item>
+        <item>@string/cancer_moon_sign</item>
+        </string-array>
+    <string-array
+        name="star_sign_array">
+        <item>@string/aries_moon_sign</item>
+        <item>@string/tauras_moon_sign</item>
+        <item>@string/gemini_moon_sign</item>
+        <item>@string/cancer_moon_sign</item>
+    </string-array>
+    <string-array
+        name="gotra_sign_array">
+        <item>@string/agastya_gotra_sign</item>
+        <item>@string/angirasa_gotra_sign</item>
+        <item>@string/atri_gotra_sign</item>
+        <item>@string/bhrigu_gotra_sign</item>
+    </string-array>
+</resources>
+
+

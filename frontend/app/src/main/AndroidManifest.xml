@@ -36,9 +36,7 @@
         <activity android:name=".VolunteerAddsDonorActivity" />
         <activity android:name=".VolunteerAfterDonorAddedActivity" />
         <activity android:name=".ViewContributionsActivity" />
-        <activity android:name=".UpdateParticipantDetailsActivity" />
         <activity android:name=".ParticipantUnsubscribeActivity" />
-        <activity android:name=".ParticipantConfirmUnsubscriptionActivity" />
         <activity android:name=".ParticipantUnsubscribeStatusActivity" />
         <activity android:name=".VolunteerHomeActivity" />
         <activity android:name=".VolunteerLogoutActivity" />

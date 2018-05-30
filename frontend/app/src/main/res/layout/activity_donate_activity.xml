@@ -91,20 +91,20 @@
             android:id="@+id/donorRashiSpinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:entries="@array/rashi_arrays"
-            android:prompt="@string/rashi_prompt" />
+            android:entries="@array/moon_sign_array"
+            android:prompt="@string/moon_sign_prompt" />
         <Spinner
             android:id="@+id/donorStarSpinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:entries="@array/star_arrays"
-            android:prompt="@string/star_prompt" />
+            android:entries="@array/star_sign_array"
+            android:prompt="@string/star_sign_prompt" />
         <Spinner
             android:id="@+id/donorGotraSpinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:entries="@array/gotra_arrays"
-            android:prompt="@string/gotra_prompt" />
+            android:entries="@array/gotra_sign_array"
+            android:prompt="@string/gotra_sign_prompt" />
 
         <LinearLayout
             android:layout_width="match_parent"

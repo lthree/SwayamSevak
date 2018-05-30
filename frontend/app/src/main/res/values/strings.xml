@@ -39,5 +39,17 @@
     <string name="choosen_location_textview">Choosen</string>
     <string name="volunteer_enter_location_hint_edittext">Enter desired location</string>
     <string name="update_participant_details_button_text">Update</string>
+    <string name="aries_moon_sign">Mesha</string>
+    <string name="tauras_moon_sign">Vrishabha</string>
+    <string name="gemini_moon_sign">Mithun</string>
+    <string name="cancer_moon_sign">Mesha</string>
+    <string name="moon_sign_prompt">Please select your rashi</string>
+    <string name="star_sign_prompt">Please select your star</string>
+    <string name="agastya_gotra_sign">Agastaya</string>
+    <string name="angirasa_gotra_sign">Angirasa</string>
+    <string name="atri_gotra_sign">Atri</string>
+    <string name="bhrigu_gotra_sign">Bhrigu</string>
+    <string name="gotra_sign_prompt">Please select your gotra</string>
+    <string name="query_current_funds_button">Current funds</string>
 
 </resources>

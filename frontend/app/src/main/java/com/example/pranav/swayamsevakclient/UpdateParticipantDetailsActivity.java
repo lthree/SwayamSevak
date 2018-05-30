@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -18,6 +19,9 @@ import com.android.volley.toolbox.JsonObjectRequest;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class UpdateParticipantDetailsActivity extends AppCompatActivity {
 
@@ -66,7 +70,24 @@ public class UpdateParticipantDetailsActivity extends AppCompatActivity {
                                                                     public void onErrorResponse(VolleyError error) {
                                                                         VolleyLog.d(TAG, "Error: " + error.getMessage());
                                                                     }
-                                                                });
+                                                                }){
+
+                                                                    @Override
+                                                                    public Map<String, String> getParams(){
+                                                                        SessionManager sessionManager = new SessionManager(getApplicationContext());
+                                                                        Map<String, String> params  = new HashMap<String, String>();
+                                                                        params.put("loginToken", sessionManager.getLoginToken());
+                                                                        return params;
+                                                                    }
+
+                                                                    @Override
+                                                                    public Map<String, String> getHeaders() throws AuthFailureError {
+                                                                        Map<String,String> params = new HashMap<String, String>();
+                                                                        params.put("Content-Type","application/x-www-form-urlencoded");
+                                                                        return params;
+                                                                    };                                                                    ;
+
+
                                                                 AppController.getInstance().addToRequestQueue(sendParticipantUpdatedDataRequest); // adds the request to the queue
                                                             }
                                                             catch (JSONException e){
