@@ -9,8 +9,11 @@ import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class DonorDetailsAddedActivity extends AppCompatActivity {
@@ -43,21 +46,26 @@ public class DonorDetailsAddedActivity extends AppCompatActivity {
         });
 
         // Volunteer wishes to check current fund status
-        Button checkCurrentFundsButton = findViewById(R.id.check_current_funds_button);
+        Button checkCurrentFundsButton = findViewById(R.id.current_funds_button);
         checkCurrentFundsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Makes DB query to get current funds
-                JSONObject currentFundsObject = new JSONObject();
-                JsonObjectRequest getCurrentFundsJSONObject = new JsonObjectRequest(Request.Method.GET, AppConfig.URL_ADD_DONOR_DETAILS, currentFundsObject, new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        TextView showCurrentFundsTextView = findViewById(R.id.current_funds_textview);
-                        showCurrentFundsTextView.setText(currentFundsObject.toString());
-                    }
-                });
-                AppController.getInstance().addToRequestQueue(getCurrentFundsJSONObject); // adds request to the queue
-            }
-        });
-    }
-}
+
+                    final JSONObject currentFundsObject = new JSONObject();
+                    final JsonObjectRequest getCurrentFundsJSONObject = new JsonObjectRequest(Request.Method.GET, AppConfig.URL_ADD_DONOR_DETAILS, currentFundsObject, new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            TextView showCurrentFundsTextView = findViewById(R.id.current_funds_text_view);
+                            showCurrentFundsTextView.setText(response.toString());
+                        }},new Response.ErrorListener()
+
+                        {
+                            @Override
+                            public void onErrorResponse (VolleyError error){
+                            VolleyLog.d("TAG", "Error: " + error.getMessage());
+                        } });
+
+                    AppController.getInstance().addToRequestQueue(getCurrentFundsJSONObject); // adds request to the queue
+                }
+            } ); }}
