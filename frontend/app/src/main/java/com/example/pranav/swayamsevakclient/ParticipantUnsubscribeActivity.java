@@ -1,6 +1,5 @@
 package com.example.pranav.swayamsevakclient;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -105,26 +104,34 @@ public class ParticipantUnsubscribeActivity extends AppCompatActivity {
 
                 // send event id and volunteer id to DB controller
                 JSONObject participantDetails = new JSONObject();
-                participantDetails.put("participantid", );
-                participantDetails.put("eventid", );
-                // initialize unsubscribe request object
-                JsonObjectRequest participantUnsubscriptionRequest = new JsonObjectRequest(Request.Method.POST, AppConfig.URL_UNSUBSCRIBE_PARTICIPANT_FROM_EVENT, participantDetails, new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        Toast.makeText(ParticipantUnsubscribeActivity.this, "You are unsubscribed from the event!!", Toast.LENGTH_SHORT).show();
-                    }, new Response.ErrorListener(){
+                String participantID, eventID; // TODO initialise
+                participantID = "";
+                eventID = "";
+                try {
+                    participantDetails.put("participantid", participantID);
+                    participantDetails.put("eventid", eventID);
+                    // initialize unsubscribe request object
+                    JsonObjectRequest participantUnsubscriptionRequest = new JsonObjectRequest(Request.Method.POST, AppConfig.URL_UNSUBSCRIBE_PARTICIPANT_FROM_EVENT, participantDetails, new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            Toast.makeText(ParticipantUnsubscribeActivity.this, "You are unsubscribed from the event!!", Toast.LENGTH_SHORT).show();
+                        }
+                    }, new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
-                            VolleyLog.d(TAG, "Error in unsubscription: " + error.getMessage());
+                            VolleyLog.d("TAG", "Error in unsubscription: " + error.getMessage());
                         }
-                        }
+                    }
                     );
-                AppController.getInstance().addToRequestQueue(participantUnsubscriptionRequest);
+                    AppController.getInstance().addToRequestQueue(participantUnsubscriptionRequest);
 
 
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            } });
 
-        });
+
+        }
     }
-
-}
 

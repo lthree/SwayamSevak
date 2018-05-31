@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -20,7 +21,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class DonateActivity extends AppCompatActivity {
-    String mDonorName, mDonorAddress, mDonorEmailAddress, mDonorStar, mDonorRashi, mDonorContactNumber, mDonorDonationAmount;
+    String mDonorName, mDonorAddress, mDonorEmailAddress, mDonorStar, mDonorRashi, mDonorGotra, mDonorContactNumber, mDonorDonationAmount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,19 +33,21 @@ public class DonateActivity extends AppCompatActivity {
         mDonorName = donorNameEditText.getText().toString();
         EditText donorAddressEditText = (EditText) findViewById(R.id.donorAddressEditText);
         mDonorAddress = donorAddressEditText.getText().toString();
-        EditText donorEmailAddressEditText = (EditText) findViewById(R.id.donorEmailAddressEditText);
+        EditText donorEmailAddressEditText = (EditText) findViewById(R.id.donorEmailEditText);
         mDonorEmailAddress = donorEmailAddressEditText.getText().toString();
-        EditText donorStarEditText = (EditText) findViewById(R.id.donorStarEditText);
-        mDonorStar = donorStarEditText.getText().toString();
-        EditText donorRashiEditText = (EditText) findViewById(R.id.donorRashiEditText);
-        mDonorRashi = donorRashiEditText.getText().toString();
+        Spinner donorStarSpinner = findViewById(R.id.donorStarSpinner);
+        mDonorStar = donorStarSpinner.getSelectedItem().toString();
+        Spinner donorRashiSpinner = findViewById(R.id.donorRashiSpinner);
+        mDonorRashi = donorRashiSpinner.getSelectedItem().toString();
+        Spinner donorGotraSpinner = findViewById(R.id.donorGotraSpinner);
+        mDonorGotra = donorGotraSpinner.getSelectedItem().toString();
         EditText donorContactNumberEditText = (EditText) findViewById(R.id.donorContactNumberEditText);
         mDonorContactNumber = donorContactNumberEditText.getText().toString();
-        EditText donorDonationAmountEditText = (EditText) findViewById(R.id.donorDonationAmountEditText);
+        EditText donorDonationAmountEditText = (EditText) findViewById(R.id.donorAmountEditText);
         mDonorDonationAmount = donorDonationAmountEditText.getText().toString();
 
         // send that information to DB on Submit click button
-        Button submit_donor_info_button = (Button) findViewById(R.id.submit_donor_details_button);
+        Button submit_donor_info_button = (Button) findViewById(R.id.donate_button);
         submit_donor_info_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -61,7 +64,7 @@ public class DonateActivity extends AppCompatActivity {
                     JsonObjectRequest sendDonorDataRequest = new JsonObjectRequest(Request.Method.POST, AppConfig.URL_ADD_DONOR_DETAILS, donorDetails, new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject response) {
-                            Log.d(TAG, response.toString());
+                            Log.d("TAG", response.toString());
                             Toast.makeText(DonateActivity.this, "Details successfully submitted!!", Toast.LENGTH_SHORT).show();
 
                             // invoke status activity
@@ -72,7 +75,7 @@ public class DonateActivity extends AppCompatActivity {
                     }, new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
-                            VolleyLog.d(TAG, "Error: " + error.getMessage());
+                            VolleyLog.d("TAG", "Error: " + error.getMessage());
                         }
                     });
                     AppController.getInstance().addToRequestQueue(sendDonorDataRequest); // adds the request to the queue
