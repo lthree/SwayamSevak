@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/view_contr"
+            android:icon="@drawable/ic_pageview"
+            android:title="@string/view" />
+        <item
+            android:id="@+id/update"
+            android:icon="@drawable/ic_update"
+            android:title="@string/update" />
+        <item
+            android:id="@+id/withdraw"
+            android:icon="@drawable/ic_delete"
+            android:title="@string/withdraw" />
+    </group>
+    <group android:id="@+id/extras">
+        <item android:id="@+id/passive"
+            android:icon="@drawable/ic_sentiment_satisfied"
+            android:title="@string/go_passive" />
+        <item android:id="@+id/logout"
+            android:icon="@drawable/ic_exit_to_app"
+            android:title="@string/logout"/>
+    </group>
+</menu>
