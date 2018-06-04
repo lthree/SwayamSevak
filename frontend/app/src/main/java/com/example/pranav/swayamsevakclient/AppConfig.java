@@ -34,4 +34,7 @@ public class AppConfig {
 
     // Server participant view contribution url
     public static String URL_VIEW_PARTCIPANT_EVENT_AND_CONTRIBUTIONS = "http://thesoulitude.in/MumbaiHackathon/event/readEvent_ContrById.php";
+
+    // Check participant into Go Passive mode
+    public static String URL_CHECK_PARTCIPANT_INTO_PASSIVE_MODE = "http://thesoulitude.in/MumbaiHackathon/event/participant_passive.php";
 }

@@ -25,6 +25,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -40,14 +45,18 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class VolunteerHomeActivity extends AppCompatActivity implements OnMapReadyCallback,
         GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener,
         LocationListener {
     private GoogleMap mMap;
-    double latitude;
-    double longitude;
+    private double latitude;
+    private double longitude;
     private int PROXIMITY_RADIUS = 5000;
+    private String json_query_result;
     GoogleApiClient mGoogleApiClient;
     Location mLastLocation;
     Marker mCurrLocationMarker;
@@ -186,8 +195,8 @@ public class VolunteerHomeActivity extends AppCompatActivity implements OnMapRea
                                 startActivity(intent3);
                                 break;
                             case R.id.passive:
-                                //Intent intent4 = new Intent(VolunteerHomeActivity.this, GoPassive.class);
-                                //startActivity(intent4);
+                                Intent intent4 = new Intent(VolunteerHomeActivity.this, GoPassiveActivity.class);
+                                startActivity(intent4);
                                 break;
                             case R.id.logout:
                                 Intent intent5 = new Intent(VolunteerHomeActivity.this, LoginActivity.class);
@@ -452,10 +461,6 @@ public class VolunteerHomeActivity extends AppCompatActivity implements OnMapRea
         return super.onOptionsItemSelected(item);
     }
 
-    //android:paddingLeft="@dimen/activity_horizontal_margin"
-    //android:paddingRight="@dimen/activity_horizontal_margin"
-    //android:paddingTop="@dimen/activity_vertical_margin"
-    //android:paddingBottom="@dimen/activity_vertical_margin"
 
 
 }

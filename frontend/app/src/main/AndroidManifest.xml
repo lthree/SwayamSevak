@@ -53,6 +53,11 @@
             android:label="Withdraw"
             android:parentActivityName=".VolunteerHomeActivity">
         </activity>
+        <activity
+            android:name=".GoPassiveActivity"
+            android:label="Go Passive"
+            android:parentActivityName=".VolunteerHomeActivity">
+        </activity>
 
     </application>
 
