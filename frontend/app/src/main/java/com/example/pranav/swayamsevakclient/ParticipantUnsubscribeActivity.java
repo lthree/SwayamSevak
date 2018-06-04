@@ -95,7 +95,7 @@ public class ParticipantUnsubscribeActivity extends AppCompatActivity {
         }
         // bind it to the adapter
         mEventAdapter = new EventListAdapter(this, participant_event_data_list);
-        ListView participant_event_list_view = findViewById(R.id.list_events_list_view);
+        ListView participant_event_list_view = findViewById(R.id.participant_abandons_event_list_view);
         participant_event_list_view.setAdapter(mEventAdapter);
         participant_event_list_view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
