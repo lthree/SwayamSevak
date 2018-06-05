@@ -1,6 +1,7 @@
 package com.example.pranav.swayamsevakclient;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +16,7 @@ import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.StringRequest;
 
 import org.json.JSONArray;
@@ -25,10 +27,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.example.pranav.swayamsevakclient.AppConfig.URL_EVENT_IMAGE;
+
 public class ShowEventDetailsActivity extends AppCompatActivity {
 
     private String json_query_result;
     final ArrayList<Event> event_data_list = new ArrayList<Event>();
+    final ImageView mImageView = (ImageView) findViewById(R.id.event_image_view);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,9 +61,9 @@ public class ShowEventDetailsActivity extends AppCompatActivity {
         }) {
 
             @Override
-            public Map<String, String> getParams(){
+            public Map<String, String> getParams() {
                 SessionManager sessionManager = new SessionManager(getApplicationContext());
-                Map<String, String> params  = new HashMap<String, String>();
+                Map<String, String> params = new HashMap<String, String>();
                 params.put("loginToken", sessionManager.getLoginToken());
                 params.put("idEvent", Integer.toString(event_id));
                 return params;
@@ -66,8 +71,8 @@ public class ShowEventDetailsActivity extends AppCompatActivity {
 
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
-                Map<String,String> params = new HashMap<String, String>();
-                params.put("Content-Type","application/x-www-form-urlencoded");
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("Content-Type", "application/x-www-form-urlencoded");
                 return params;
             }
         };
@@ -75,14 +80,11 @@ public class ShowEventDetailsActivity extends AppCompatActivity {
 
         AppController.getInstance().addToRequestQueue(eventDetailsRequest);
 
-        // Fetch event image
-        ImageView mImageView;
-        String url = "http://i.imgur.com/7spzG.png"; // TODO, event image URL here
-        mImageView = (ImageView) findViewById(R.id.event_image_view);
 
 
         // Retrieves an image specified by the URL, displays it in the UI.
-        ImageRequest request = new ImageRequest(url,
+        ImageRequest request = new ImageRequest(URL_EVENT_IMAGE,
+
                 new Response.Listener<Bitmap>() {
                     @Override
                     public void onResponse(Bitmap bitmap) {
@@ -91,16 +93,33 @@ public class ShowEventDetailsActivity extends AppCompatActivity {
                 }, 0, 0, null,
                 new Response.ErrorListener() {
                     public void onErrorResponse(VolleyError error) {
-                        mImageView.setImageResource(R.drawable.image_load_error);
+                        Toast.makeText(ShowEventDetailsActivity.this, "Sorry, could not access event image!!", Toast.LENGTH_SHORT).show();
                     }
-                });
+                }) {
+
+            @Override
+            public Map<String, String> getParams() {
+                SessionManager sessionManager = new SessionManager(getApplicationContext());
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("loginToken", sessionManager.getLoginToken());
+                params.put("idEvent", Integer.toString(event_id));
+                return params;
+            }
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("Content-Type", "application/x-www-form-urlencoded");
+                return params;
+            }
+        };
 // Access the RequestQueue through your singleton class.
         AppController.getInstance().addToRequestQueue(request);
 
     }
 
 
-    public void display_event_details(){
+    public void display_event_details() {
         // extract information from json result
 
         try {
@@ -119,15 +138,8 @@ public class ShowEventDetailsActivity extends AppCompatActivity {
             // TODO initialize from event details
             String eventDetailsText = new String(); // TODO initialize from DB
 
-            TextView eventDescriptionTextView  = findViewById(R.id.event_description_text_view);
+            TextView eventDescriptionTextView = findViewById(R.id.event_description_text_view);
             eventDescriptionTextView.setText(event_data_list.get(0).getEventDetails());
-
-
-            // invoke donate activity if donate button pressed
-
-            ImageView eventImageView = findViewById(R.id.event_image_view);
-            // eventImageView.setImageResource(R.drawable.volunteering); // TODO get it from DB and store it in RAM
-            // eventImageView.setVisibility(View.VISIBLE);
 
 
             // Handle buttons
@@ -150,9 +162,7 @@ public class ShowEventDetailsActivity extends AppCompatActivity {
             });
 
 
-
-        }
-        catch (JSONException e){
+        } catch (JSONException e) {
             Toast.makeText(getApplicationContext(), "Error" + e.toString(),
                     Toast.LENGTH_SHORT).show();
         }
