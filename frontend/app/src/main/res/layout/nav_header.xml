@@ -12,6 +12,7 @@
         android:layout_height="50dp"
         android:layout_gravity="left|top"
         android:layout_marginTop="55dp"
+        android:adjustViewBounds="true"
         android:src="@drawable/ic_account_circle" />
 
     <TextView

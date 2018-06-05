@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.location.Location;
 import android.os.Build;
 import android.support.design.widget.NavigationView;
@@ -23,6 +24,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,6 +52,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.ByteArrayOutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -64,6 +67,7 @@ public class VolunteerHomeActivity extends AppCompatActivity implements OnMapRea
     private double longitude;
     private int PROXIMITY_RADIUS = 5000;
     private String json_query_result;
+    private Bitmap bitmap;
     GoogleApiClient mGoogleApiClient;
     Location mLastLocation;
     Marker mCurrLocationMarker;
@@ -231,7 +235,7 @@ public class VolunteerHomeActivity extends AppCompatActivity implements OnMapRea
                 });
         TextView name = null;
         TextView email = null;
-        ImageView profileImage;
+        final ImageView profileImage;
         String personName = "Yoshua Bengio";
         String personEmail = "yosh.beng@gmail.com";
         View header = navigationView.getHeaderView(0);
@@ -243,6 +247,25 @@ public class VolunteerHomeActivity extends AppCompatActivity implements OnMapRea
         get_volunteer_details(partID,profileImage, name, email);
         //name.setText(personName);
         //email.setText(personEmail);
+        profileImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                     // Update volunteer profile picture activity
+                    Intent intent6 = new Intent(VolunteerHomeActivity.this, EditVolunteerProfilePictureActivity.class);
+
+                    // convert bitmap image into array
+                    Bitmap bmp = bitmap;
+                    ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                    bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                    byte[] byteArray = stream.toByteArray();
+
+                    // send byte array of image to intent
+                    intent6.putExtra("Profile picture", byteArray);
+                    startActivity(intent6);
+
+            }
+        });
 
     }
 
@@ -483,8 +506,9 @@ public class VolunteerHomeActivity extends AppCompatActivity implements OnMapRea
        ImageRequest imagerequest = new ImageRequest(URL_EVENT_IMAGE,
                new Response.Listener<Bitmap>() {
                    @Override
-                   public void onResponse(Bitmap bitmap) {
-                       profileImage.setImageBitmap(bitmap);
+                   public void onResponse(Bitmap bitmap1) {
+                       bitmap = bitmap1;
+                       profileImage.setImageBitmap(bitmap1);
                    }
                }, 0, 0, null,
                new Response.ErrorListener() {
@@ -558,11 +582,6 @@ public class VolunteerHomeActivity extends AppCompatActivity implements OnMapRea
        AppController.getInstance().addToRequestQueue(participantDetailsRequest);
 
    }
-
-   // Update change in profile image of volunteer
-    public void update_profile_image_volunteer() {
-
-    }
 
 }
 
