@@ -31,7 +31,7 @@ public class AppConfig {
 
     // Server participant unsubscribe url
     public static String URL_UNSUBSCRIBE_PARTICIPANT_FROM_EVENT = "http://thesoulitude.in/MumbaiHackathon/event/readEventById.php";
-    
+
     // Server participant view contribution url
     public static String URL_VIEW_PARTCIPANT_EVENT_AND_CONTRIBUTIONS = "http://thesoulitude.in/MumbaiHackathon/event/readEvent_ContrById.php";
 

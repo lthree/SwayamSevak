@@ -5,6 +5,7 @@ import android.*;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
 import android.location.Location;
 import android.os.Build;
 import android.support.design.widget.NavigationView;
@@ -29,6 +30,7 @@ import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
@@ -45,8 +47,13 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
+
+import static com.example.pranav.swayamsevakclient.AppConfig.URL_EVENT_IMAGE;
 
 public class VolunteerHomeActivity extends AppCompatActivity implements OnMapReadyCallback,
         GoogleApiClient.ConnectionCallbacks,
@@ -68,7 +75,11 @@ public class VolunteerHomeActivity extends AppCompatActivity implements OnMapRea
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_volunteer_home);
-        String eventID = getIntent().getStringExtra("EVENT_ID");
+
+        // extract Event_id and participant_id
+        Bundle extras = getIntent().getExtras();
+        final int eventID = (Integer) extras.get("event_id");
+        final int partID = (Integer) extras.get("part_id");
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -115,7 +126,7 @@ public class VolunteerHomeActivity extends AppCompatActivity implements OnMapRea
             public void onClick(View v) {
                 Log.d("onClick", "Button is Clicked");
                 //mMap.clear();
-                String url = getUrl(latitude, longitude,"restaurant|neighborhood|locality|sublocality");
+                String url = getUrl(latitude, longitude,"regions|restaurant|neighborhood|locality|sublocality");
                 Object[] DataTransfer = new Object[2];
                 DataTransfer[0] = mMap;
                 DataTransfer[1] = url;
@@ -226,8 +237,12 @@ public class VolunteerHomeActivity extends AppCompatActivity implements OnMapRea
         View header = navigationView.getHeaderView(0);
         name = (TextView)header.findViewById(R.id.nameTxt);
         email = (TextView)header.findViewById(R.id.emailTxt);
-        name.setText(personName);
-        email.setText(personEmail);
+        profileImage = (ImageView)header.findViewById(R.id.profileImageView);
+
+        // get Volunteer profile picture, name and email id from DB
+        get_volunteer_details(partID,profileImage, name, email);
+        //name.setText(personName);
+        //email.setText(personEmail);
 
     }
 
@@ -461,7 +476,93 @@ public class VolunteerHomeActivity extends AppCompatActivity implements OnMapRea
         return super.onOptionsItemSelected(item);
     }
 
+   public void get_volunteer_details(final int partID, final ImageView profileImage, final TextView name, final TextView email) {
 
+
+       // Retrieves an image specified by the URL, displays it in the UI.
+       ImageRequest imagerequest = new ImageRequest(URL_EVENT_IMAGE,
+               new Response.Listener<Bitmap>() {
+                   @Override
+                   public void onResponse(Bitmap bitmap) {
+                       profileImage.setImageBitmap(bitmap);
+                   }
+               }, 0, 0, null,
+               new Response.ErrorListener() {
+                   public void onErrorResponse(VolleyError error) {
+                       Toast.makeText(VolunteerHomeActivity.this, "Sorry, could not access your profile picture!!", Toast.LENGTH_SHORT).show();
+                   }
+               }) {
+
+           @Override
+           public Map<String, String> getParams() {
+               SessionManager sessionManager = new SessionManager(getApplicationContext());
+               Map<String, String> params = new HashMap<String, String>();
+               params.put("loginToken", sessionManager.getLoginToken());
+               params.put("idParticipant", Integer.toString(partID));
+               return params;
+           }
+
+           @Override
+           public Map<String, String> getHeaders() throws AuthFailureError {
+               Map<String, String> params = new HashMap<String, String>();
+               params.put("Content-Type", "application/x-www-form-urlencoded");
+               return params;
+           }
+       };
+      // Access the RequestQueue through your singleton class.
+       AppController.getInstance().addToRequestQueue(imagerequest);
+
+       // DB query to fetch specific event details
+       // Creates JSON object Post request
+       StringRequest participantDetailsRequest = new StringRequest(Request.Method.POST, AppConfig.URL_EVENT_DETAILS, new Response.Listener<String>() {
+           @Override
+           public void onResponse(String response) {
+               json_query_result = response;
+               try{
+                   JSONObject json_response = new JSONObject(json_query_result);
+                   String Vol_name = json_response.getString("name");
+                   String Vol_email = json_response.getString("email");
+                   name.setText(Vol_name);
+                   email.setText(Vol_email);
+
+               }
+
+
+               catch(JSONException error){ error.printStackTrace();}
+           }
+       }, new Response.ErrorListener() {
+           @Override
+           public void onErrorResponse(VolleyError error) {
+               error.printStackTrace();
+           }
+       }) {
+
+           @Override
+           public Map<String, String> getParams() {
+               SessionManager sessionManager = new SessionManager(getApplicationContext());
+               Map<String, String> params = new HashMap<String, String>();
+               params.put("loginToken", sessionManager.getLoginToken());
+               params.put("idParticipant", Integer.toString(partID));
+               return params;
+           }
+
+           @Override
+           public Map<String, String> getHeaders() throws AuthFailureError {
+               Map<String, String> params = new HashMap<String, String>();
+               params.put("Content-Type", "application/x-www-form-urlencoded");
+               return params;
+           }
+       };
+
+
+       AppController.getInstance().addToRequestQueue(participantDetailsRequest);
+
+   }
+
+   // Update change in profile image of volunteer
+    public void update_profile_image_volunteer() {
+
+    }
 
 }
 
