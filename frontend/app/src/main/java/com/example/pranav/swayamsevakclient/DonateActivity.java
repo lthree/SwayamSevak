@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -19,6 +20,9 @@ import com.android.volley.toolbox.JsonObjectRequest;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class DonateActivity extends AppCompatActivity {
     String mDonorName, mDonorAddress, mDonorEmailAddress, mDonorStar, mDonorRashi, mDonorGotra, mDonorContactNumber, mDonorDonationAmount;
@@ -53,7 +57,7 @@ public class DonateActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // send that information to DB
                 JSONObject donorDetails = new JSONObject();
-                try{
+                try {
                     donorDetails.put("name", mDonorName);
                     donorDetails.put("address", mDonorAddress);
                     donorDetails.put("emailid", mDonorEmailAddress);
@@ -77,16 +81,38 @@ public class DonateActivity extends AppCompatActivity {
                         public void onErrorResponse(VolleyError error) {
                             VolleyLog.d("TAG", "Error: " + error.getMessage());
                         }
-                    });
+                    })
+
+                    {
+
+                        @Override
+                        public Map<String, String> getParams() {
+                            SessionManager sessionManager = new SessionManager(getApplicationContext());
+                            Map<String, String> params = new HashMap<String, String>();
+                            params.put("loginToken", sessionManager.getLoginToken());
+                            params.put("participantId", sessionManager.getParticipantID());
+                            return params;
+                        }
+
+                        @Override
+                        public Map<String, String> getHeaders() throws AuthFailureError {
+                            Map<String, String> params = new HashMap<String, String>();
+                            params.put("Content-Type", "application/x-www-form-urlencoded");
+                            return params;
+                        }
+
+
+
+                    };
                     AppController.getInstance().addToRequestQueue(sendDonorDataRequest); // adds the request to the queue
                 }
-                catch (JSONException e){
-                    e.printStackTrace();
+                catch(JSONException e){
+                        e.printStackTrace();
+                    }
+
+
                 }
-
-
             }
-        }
 
         );
 

@@ -115,6 +115,7 @@ public class LoginActivity extends AppCompatActivity {
                     String name = userobj.getString("name");
                     String email = userobj.getString("email");
                     String loginToken = userobj.getString("loginToken");
+                    String participantID = userobj.getString("participantID");
 
                     // Check for error node in json
                     if (!error) {
@@ -122,6 +123,7 @@ public class LoginActivity extends AppCompatActivity {
                         // Create login session
                         session.setLogin(true);
                         session.setLogintoken(loginToken);
+                        session.setParticipantID(participantID);
 
                         // Launch main activity
                         Intent intent = new Intent(LoginActivity.this,ParticipantHomePageActivity.class);
