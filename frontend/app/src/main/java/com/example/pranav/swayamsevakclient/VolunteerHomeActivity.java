@@ -20,6 +20,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.util.StateSet;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -57,6 +58,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static com.example.pranav.swayamsevakclient.AppConfig.URL_EVENT_IMAGE;
+import static com.example.pranav.swayamsevakclient.AppConfig.URL_VOLUNTEER_IMAGE;
 
 public class VolunteerHomeActivity extends AppCompatActivity implements OnMapReadyCallback,
         GoogleApiClient.ConnectionCallbacks,
@@ -73,6 +75,7 @@ public class VolunteerHomeActivity extends AppCompatActivity implements OnMapRea
     Marker mCurrLocationMarker;
     LocationRequest mLocationRequest;
     DrawerLayout mDrawerLayout;
+    private static String eventID;
 
 
     @Override
@@ -82,8 +85,7 @@ public class VolunteerHomeActivity extends AppCompatActivity implements OnMapRea
 
         // extract Event_id and participant_id
         Bundle extras = getIntent().getExtras();
-        final int eventID = (Integer) extras.get("event_id");
-        final int partID = (Integer) extras.get("part_id");
+        eventID = (String) extras.get("event_id");
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -114,8 +116,9 @@ public class VolunteerHomeActivity extends AppCompatActivity implements OnMapRea
         final TextView targetTextView = findViewById(R.id.targetID);
         final TextView currentTextView = findViewById(R.id.currentID);
         Resources res = getResources();
-        String tgtamnt = "$tgtamt";
-        String crtamnt = "$crtamt";
+        String[] event_static_amount = get_target_and_current_amount_for_an_event();
+        String tgtamnt = event_static_amount[0];
+        String crtamnt = event_static_amount[1];
         String targettext = String.format(res.getString(R.string.targetex), tgtamnt);
         String currenttext = String.format(res.getString(R.string.currentex), crtamnt);
         targetTextView.setText(targettext);
@@ -244,7 +247,7 @@ public class VolunteerHomeActivity extends AppCompatActivity implements OnMapRea
         profileImage = (ImageView)header.findViewById(R.id.profileImageView);
 
         // get Volunteer profile picture, name and email id from DB
-        get_volunteer_details(partID,profileImage, name, email);
+        get_volunteer_details(profileImage, name, email);
         //name.setText(personName);
         //email.setText(personEmail);
         profileImage.setOnClickListener(new View.OnClickListener() {
@@ -499,12 +502,11 @@ public class VolunteerHomeActivity extends AppCompatActivity implements OnMapRea
         return super.onOptionsItemSelected(item);
     }
 
-   public void get_volunteer_details(final int partID, final ImageView profileImage, final TextView name, final TextView email) {
+   public void get_volunteer_details( final ImageView profileImage, final TextView name, final TextView email) {
 
 
        // Retrieves an image specified by the URL, displays it in the UI.
-       ImageRequest imagerequest = new ImageRequest(URL_EVENT_IMAGE,
-               new Response.Listener<Bitmap>() {
+       ImageRequest imagerequest = new ImageRequest(URL_VOLUNTEER_IMAGE, new Response.Listener<Bitmap>() {
                    @Override
                    public void onResponse(Bitmap bitmap1) {
                        bitmap = bitmap1;
@@ -522,7 +524,7 @@ public class VolunteerHomeActivity extends AppCompatActivity implements OnMapRea
                SessionManager sessionManager = new SessionManager(getApplicationContext());
                Map<String, String> params = new HashMap<String, String>();
                params.put("loginToken", sessionManager.getLoginToken());
-               params.put("idParticipant", Integer.toString(partID));
+               params.put("participantID", sessionManager.getParticipantID() );
                return params;
            }
 
@@ -538,7 +540,7 @@ public class VolunteerHomeActivity extends AppCompatActivity implements OnMapRea
 
        // DB query to fetch specific event details
        // Creates JSON object Post request
-       StringRequest participantDetailsRequest = new StringRequest(Request.Method.POST, AppConfig.URL_EVENT_DETAILS, new Response.Listener<String>() {
+       StringRequest participantDetailsRequest = new StringRequest(Request.Method.POST, AppConfig.URL_VOLUNTEER_DETAILS, new Response.Listener<String>() {
            @Override
            public void onResponse(String response) {
                json_query_result = response;
@@ -566,7 +568,7 @@ public class VolunteerHomeActivity extends AppCompatActivity implements OnMapRea
                SessionManager sessionManager = new SessionManager(getApplicationContext());
                Map<String, String> params = new HashMap<String, String>();
                params.put("loginToken", sessionManager.getLoginToken());
-               params.put("idParticipant", Integer.toString(partID));
+               params.put("participantID", sessionManager.getParticipantID());
                return params;
            }
 
@@ -580,6 +582,58 @@ public class VolunteerHomeActivity extends AppCompatActivity implements OnMapRea
 
 
        AppController.getInstance().addToRequestQueue(participantDetailsRequest);
+
+   }
+
+
+   // fetch an event target and current amount from server for user home page
+   public String[] get_target_and_current_amount_for_an_event()
+   {
+        final String[] event_target_current_amnt = new String[2];
+
+       StringRequest participantDetailsRequest = new StringRequest(Request.Method.POST, AppConfig.URL_EVENT_DETAILS, new Response.Listener<String>() {
+           @Override
+           public void onResponse(String response) {
+               json_query_result = response;
+               try{
+
+                   JSONObject json_response = new JSONObject(json_query_result);
+                   event_target_current_amnt[0] = json_response.getString("target_amount");
+                   event_target_current_amnt[1] = json_response.getString("current_amount");
+
+               }
+
+
+               catch(JSONException error){ error.printStackTrace();}
+           }
+       }, new Response.ErrorListener() {
+           @Override
+           public void onErrorResponse(VolleyError error) {
+               error.printStackTrace();
+           }
+       }) {
+
+           @Override
+           public Map<String, String> getParams() {
+               SessionManager sessionManager = new SessionManager(getApplicationContext());
+               Map<String, String> params = new HashMap<String, String>();
+               params.put("loginToken", sessionManager.getLoginToken());
+               params.put("eventID", eventID);
+               return params;
+           }
+
+           @Override
+           public Map<String, String> getHeaders() throws AuthFailureError {
+               Map<String, String> params = new HashMap<String, String>();
+               params.put("Content-Type", "application/x-www-form-urlencoded");
+               return params;
+           }
+       };
+
+
+       AppController.getInstance().addToRequestQueue(participantDetailsRequest);
+
+       return event_target_current_amnt;
 
    }
 

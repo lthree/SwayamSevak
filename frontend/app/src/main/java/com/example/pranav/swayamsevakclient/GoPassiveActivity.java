@@ -44,7 +44,6 @@ public class GoPassiveActivity extends AppCompatActivity {
         // set is_active flag on server to False stating that the participant is no longer volunteering and is just navigating through the app
         // TODO can use it to see number of Active Volunteers
 
-        final String PartID = "1234567";   // TODO Get participant ID first
         // create JSON object POST request
         StringRequest participantEventListRequest = new StringRequest(Request.Method.POST, AppConfig.URL_CHECK_PARTCIPANT_INTO_PASSIVE_MODE, new Response.Listener<String>() {
             @Override
@@ -63,7 +62,7 @@ public class GoPassiveActivity extends AppCompatActivity {
                 SessionManager sessionManager = new SessionManager(getApplicationContext());
                 Map<String, String> params = new HashMap<>();
                 params.put("loginToken", sessionManager.getLoginToken());
-                params.put("ParticipantID", PartID);
+                params.put("participantID", sessionManager.getParticipantID());
                 return params;
             }
 
@@ -79,9 +78,6 @@ public class GoPassiveActivity extends AppCompatActivity {
         AppController.getInstance().addToRequestQueue(participantEventListRequest);
     }
 
-    public void onStartVolunteeringRadioButtonClicked(View view) {
-
-    }
 
     public void start_volunteering() {
 

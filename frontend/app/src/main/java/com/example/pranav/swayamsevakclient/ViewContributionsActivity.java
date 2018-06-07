@@ -66,9 +66,6 @@ public class ViewContributionsActivity extends AppCompatActivity {
         list.add(row_map);
 
 
-
-
-        final String PartID = "1234567";   // TODO Get participant ID first
         // create JSON object POST request
         StringRequest participantEventListRequest = new StringRequest(Request.Method.POST, AppConfig.URL_VIEW_PARTCIPANT_EVENT_AND_CONTRIBUTIONS, new Response.Listener<String>() {
             @Override
@@ -87,7 +84,7 @@ public class ViewContributionsActivity extends AppCompatActivity {
                 SessionManager sessionManager = new SessionManager(getApplicationContext());
                 Map<String, String> params = new HashMap<>();
                 params.put("loginToken", sessionManager.getLoginToken());
-                params.put("ParticipantID", PartID);
+                params.put("participantID", sessionManager.getParticipantID());
                 return params;
             }
 

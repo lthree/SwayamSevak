@@ -29,6 +29,10 @@ public class  SessionManager {
 
     private static final String LOGIN_TOKEN = "loginToken";
 
+    private static final String PARTICIPANT_ID = "participantID";
+
+    private static final String EVENT_ID = "eventID";
+
     public SessionManager(Context context) {
         this._context = context;
         pref = _context.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
@@ -54,11 +58,17 @@ public class  SessionManager {
         Log.d(TAG, "User login session modified!");
     }
 
+    public void setParticipantID(String participantID) {
+        editor.putString(PARTICIPANT_ID, participantID);
+        editor.commit();
+    }
+
+
     public boolean isLoggedIn(){
         return pref.getBoolean(KEY_IS_LOGGEDIN, false);
     }
-    public String getLoginToken(){ return pref.getString(LOGIN_TOKEN, null);
-    }
+    public String getLoginToken(){ return pref.getString(LOGIN_TOKEN, null);}
+    public String getParticipantID() { return pref.getString(PARTICIPANT_ID, null);}
 
 }
 

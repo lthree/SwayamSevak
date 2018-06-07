@@ -41,4 +41,10 @@ public class AppConfig {
     // Server event image fetch url
     public static String URL_EVENT_IMAGE = "http://thesoulitude.in/MumbaiHackathon/event/readEventById.php";
 
+    // Server volunteer name and mail fetch url
+    public static String URL_VOLUNTEER_DETAILS = "http://thesoulitude.in/MumbaiHackathon/event/readVolunteertById.php";
+
+    // Server volunteer image fetch url
+    public static String URL_VOLUNTEER_IMAGE = "http://thesoulitude.in/MumbaiHackathon/event/readVolunteertById.php";
+
 }
