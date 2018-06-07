@@ -1,0 +1,15 @@
+[18-Apr-2018 14:12:15 UTC] PHP Fatal error:  Uncaught exception 'InvalidArgumentException' with message 'Passed variable is not an array or object, using empty array instead' in /home/thesoulitude/public_html/MumbaiHackathon/places/checkPlaceStatus.php:10
+Stack trace:
+#0 /home/thesoulitude/public_html/MumbaiHackathon/places/checkPlaceStatus.php(10): ArrayIterator->__construct(NULL)
+#1 {main}
+  thrown in /home/thesoulitude/public_html/MumbaiHackathon/places/checkPlaceStatus.php on line 10
+[18-Apr-2018 14:15:40 UTC] PHP Fatal error:  Uncaught exception 'InvalidArgumentException' with message 'Passed variable is not an array or object, using empty array instead' in /home/thesoulitude/public_html/MumbaiHackathon/places/checkPlaceStatus.php:10
+Stack trace:
+#0 /home/thesoulitude/public_html/MumbaiHackathon/places/checkPlaceStatus.php(10): ArrayIterator->__construct(NULL)
+#1 {main}
+  thrown in /home/thesoulitude/public_html/MumbaiHackathon/places/checkPlaceStatus.php on line 10
+[01-May-2018 14:54:27 UTC] PHP Fatal error:  Uncaught exception 'InvalidArgumentException' with message 'Passed variable is not an array or object, using empty array instead' in /home/thesoulitude/public_html/MumbaiHackathon/places/checkPlaceStatus.php:10
+Stack trace:
+#0 /home/thesoulitude/public_html/MumbaiHackathon/places/checkPlaceStatus.php(10): ArrayIterator->__construct(NULL)
+#1 {main}
+  thrown in /home/thesoulitude/public_html/MumbaiHackathon/places/checkPlaceStatus.php on line 10
