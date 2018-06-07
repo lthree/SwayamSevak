@@ -58,6 +58,7 @@ public class ParticipantUnsubscribeActivity extends AppCompatActivity {
                 SessionManager sessionManager = new SessionManager(getApplicationContext());
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("loginToken", sessionManager.getLoginToken());
+                params.put("participantID", sessionManager.getLoginToken());
                 return params;
             }
 
@@ -108,7 +109,6 @@ public class ParticipantUnsubscribeActivity extends AppCompatActivity {
                 participantID = "";
                 eventID = "";
                 try {
-                    participantDetails.put("participantid", participantID);
                     participantDetails.put("eventid", eventID);
                     // initialize unsubscribe request object
                     JsonObjectRequest participantUnsubscriptionRequest = new JsonObjectRequest(Request.Method.POST, AppConfig.URL_UNSUBSCRIBE_PARTICIPANT_FROM_EVENT, participantDetails, new Response.Listener<JSONObject>() {
@@ -122,16 +122,36 @@ public class ParticipantUnsubscribeActivity extends AppCompatActivity {
                             VolleyLog.d("TAG", "Error in unsubscription: " + error.getMessage());
                         }
                     }
-                    );
+                    )
+
+                    {
+
+                        @Override
+                        public Map<String, String> getParams() {
+                            SessionManager sessionManager = new SessionManager(getApplicationContext());
+                            Map<String, String> params = new HashMap<String, String>();
+                            params.put("loginToken", sessionManager.getLoginToken());
+                            params.put("participantID", sessionManager.getLoginToken());
+                            return params;
+                        }
+
+                        @Override
+                        public Map<String, String> getHeaders() throws AuthFailureError {
+                            Map<String, String> params = new HashMap<String, String>();
+                            params.put("Content-Type", "application/x-www-form-urlencoded");
+                            return params;
+                        }
+                    };
                     AppController.getInstance().addToRequestQueue(participantUnsubscriptionRequest);
 
 
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-            } });
+            }
+        });
 
 
-        }
     }
+}
 

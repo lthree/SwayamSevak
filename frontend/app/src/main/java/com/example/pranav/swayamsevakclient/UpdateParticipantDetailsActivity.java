@@ -76,6 +76,7 @@ public class UpdateParticipantDetailsActivity extends AppCompatActivity {
                                                                               SessionManager sessionManager = new SessionManager(getApplicationContext());
                                                                               Map<String, String> params = new HashMap<String, String>();
                                                                               params.put("loginToken", sessionManager.getLoginToken());
+                                                                              params.put("participantID", sessionManager.getParticipantID());
                                                                               return params;
                                                                           }
 
