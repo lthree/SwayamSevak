@@ -68,5 +68,10 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="go_passive">Go Passive</string>
     <string name="logout">Logout</string>
+    <string-array name="update_photo">
+        <item>Camera</item>
+        <item>Gallery</item>
+        <item>Cancel</item>
+    </string-array>
 
 </resources>
