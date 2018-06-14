@@ -32,6 +32,19 @@ public class AppConfig {
     // Server participant unsubscribe url
     public static String URL_UNSUBSCRIBE_PARTICIPANT_FROM_EVENT = "http://thesoulitude.in/MumbaiHackathon/event/readEventById.php";
 
+    // Server participant view contribution url
+    public static String URL_VIEW_PARTCIPANT_EVENT_AND_CONTRIBUTIONS = "http://thesoulitude.in/MumbaiHackathon/event/readEvent_ContrById.php";
+
+    // Check participant into Go Passive mode
+    public static String URL_CHECK_PARTCIPANT_INTO_PASSIVE_MODE = "http://thesoulitude.in/MumbaiHackathon/event/participant_passive.php";
+
     // Server event image fetch url
     public static String URL_EVENT_IMAGE = "http://thesoulitude.in/MumbaiHackathon/event/readEventById.php";
+
+    // Server volunteer name and mail fetch url
+    public static String URL_VOLUNTEER_DETAILS = "http://thesoulitude.in/MumbaiHackathon/event/readVolunteertById.php";
+
+    // Server volunteer image fetch url
+    public static String URL_VOLUNTEER_IMAGE = "http://thesoulitude.in/MumbaiHackathon/event/readVolunteertById.php";
+
 }

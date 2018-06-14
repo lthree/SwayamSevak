@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.pranav.swayamsevakclient">
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <permission
-        android:name="com.example.pranav.swayamsevakclient.android.googleplacesdetail.permission.MAPS_RECEIVE"
-        android:protectionLevel="signature" />
 
-    <uses-permission android:name="com.example.pranav.swayamsevakclient.android.googleplacesdetail.permission.MAPS_RECEIVE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
-        android:name=".AppController"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,15 +34,30 @@
         <activity android:name=".DonorDetailsAddedActivity" />
         <activity android:name=".VolunteerAddsDonorActivity" />
         <activity android:name=".VolunteerAfterDonorAddedActivity" />
-        <activity android:name=".ViewContributionsActivity" />
-        <activity android:name=".ParticipantUnsubscribeActivity" />
-        <activity android:name=".ParticipantUnsubscribeStatusActivity" />
         <activity android:name=".VolunteerHomeActivity" />
         <activity android:name=".VolunteerLogoutActivity" />
-        <activity android:name=".ParticipantDetailsUpdatedActivity" />
         <activity android:name=".RegistrationActivity"/>
         <activity android:name=".HomeActivity"/>
         <activity android:name=".LoginActivity"/>
+        <activity
+            android:name=".UpdateParticipantDetailsActivity"
+            android:label="Update"
+            android:parentActivityName=".VolunteerHomeActivity" />
+        <activity
+            android:name=".ViewContributionsActivity"
+            android:label="Contributions"
+            android:parentActivityName=".VolunteerHomeActivity">
+        </activity>
+        <activity
+            android:name=".ParticipantUnsubscribeActivity"
+            android:label="Withdraw"
+            android:parentActivityName=".VolunteerHomeActivity">
+        </activity>
+        <activity
+            android:name=".GoPassiveActivity"
+            android:label="Go Passive"
+            android:parentActivityName=".VolunteerHomeActivity">
+        </activity>
 
     </application>
 

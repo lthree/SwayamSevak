@@ -1,0 +1,4 @@
+[26-May-2018 14:27:34 UTC] PHP Fatal error:  Call to a member function bind_param() on a non-object in /home/thesoulitude/public_html/MumbaiHackathon/event/uploadImage.php on line 15
+[26-May-2018 15:33:03 UTC] PHP Fatal error:  Call to undefined function updateImage() in /home/thesoulitude/public_html/MumbaiHackathon/event/uploadImage.php on line 15
+[26-May-2018 15:34:26 UTC] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/thesoulitude/public_html/MumbaiHackathon/event/uploadImage.php on line 44
+[26-May-2018 15:37:07 UTC] PHP Fatal error:  Call to a member function bind_param() on a non-object in /home/thesoulitude/public_html/MumbaiHackathon/event/uploadImage.php on line 45

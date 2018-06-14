@@ -51,5 +51,27 @@
     <string name="bhrigu_gotra_sign">Bhrigu</string>
     <string name="gotra_sign_prompt">Please select your gotra</string>
     <string name="query_current_funds_button">Current funds</string>
+    <string name="title_activity_maps">Volunteer Home</string>
+    <string name="btn_checkin">Check In</string>
+    <string name="btn_checkout">Check Out</string>
+    <string name="CheckOut">Check Out</string>
+    <string name="CheckIn">Check In</string>
+    <string name="targetID">Target Fund</string>
+    <string name="currentID">Current Fund</string>
+    <string name="targetex">Target \u003A %1$s</string>
+    <string name="currentex">Current \u003A %1$s</string>
+    <string name="listevents"> List events</string>
+    <string name="view">View contribution</string>
+    <string name="update">Update info</string>
+    <string name="withdraw">Withdraw participation</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="go_passive">Go Passive</string>
+    <string name="logout">Logout</string>
+    <string-array name="update_photo">
+        <item>Camera</item>
+        <item>Gallery</item>
+        <item>Cancel</item>
+    </string-array>
 
 </resources>
