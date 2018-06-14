@@ -1,3 +1,6 @@
+package com.example.pranav.swayamsevakclient;
+
+
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -8,23 +11,15 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.pranav.swayamsevakclient.ParticipantUnsubscribeActivity;
-import com.example.pranav.swayamsevakclient.R;
-import com.example.pranav.swayamsevakclient.UpdateParticipantDetailsActivity;
-import com.example.pranav.swayamsevakclient.ViewContributionsActivity;
-import com.example.pranav.swayamsevakclient.VolunteerHomeActivity;
-import com.example.pranav.swayamsevakclient.VolunteerLogoutActivity;
+
 
 import java.io.ByteArrayOutputStream;
 
 public class NavigationDrawerBaseClass extends Activity {
 
-    DrawerLayout mDrawerLayout;
+    DrawerLayout mDrawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
 
-    mDrawerLayout=
-
-    findViewById(R.id.drawer_layout);
-        mDrawerLayout.addDrawerListener(
+    mDrawerLayout.addDrawerListener(
                 new DrawerLayout.DrawerListener()
 
     {
