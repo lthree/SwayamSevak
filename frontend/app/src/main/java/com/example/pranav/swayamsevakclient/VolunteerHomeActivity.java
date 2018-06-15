@@ -69,7 +69,7 @@ public class VolunteerHomeActivity extends AppCompatActivity implements OnMapRea
     private double longitude;
     private int PROXIMITY_RADIUS = 5000;
     private String json_query_result;
-    private Bitmap bitmap;
+
     GoogleApiClient mGoogleApiClient;
     Location mLastLocation;
     Marker mCurrLocationMarker;
@@ -87,13 +87,7 @@ public class VolunteerHomeActivity extends AppCompatActivity implements OnMapRea
         Bundle extras = getIntent().getExtras();
         eventID = (String) extras.get("event_id");
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        ActionBar actionbar = getSupportActionBar();
-        assert actionbar != null;
-        actionbar.setHomeButtonEnabled(true);
-        actionbar.setDisplayHomeAsUpEnabled(true);
-        actionbar.setHomeAsUpIndicator(R.drawable.ic_menu);
+
 
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -133,7 +127,7 @@ public class VolunteerHomeActivity extends AppCompatActivity implements OnMapRea
             public void onClick(View v) {
                 Log.d("onClick", "Button is Clicked");
                 //mMap.clear();
-                String url = getUrl(latitude, longitude,"regions|restaurant|neighborhood|locality|sublocality");
+                String url = getUrl(latitude, longitude, "regions|restaurant|neighborhood|locality|sublocality");
                 Object[] DataTransfer = new Object[2];
                 DataTransfer[0] = mMap;
                 DataTransfer[1] = url;
@@ -163,112 +157,6 @@ public class VolunteerHomeActivity extends AppCompatActivity implements OnMapRea
             }
         });
 
-        mDrawerLayout = findViewById(R.id.drawer_layout);
-        mDrawerLayout.addDrawerListener(
-                new DrawerLayout.DrawerListener() {
-                    @Override
-                    public void onDrawerSlide(View drawerView, float slideOffset) {
-                        // Respond when the drawer's position changes
-                    }
-
-                    @Override
-                    public void onDrawerOpened(View drawerView) {
-                        // Respond when the drawer is opened
-                    }
-
-                    @Override
-                    public void onDrawerClosed(View drawerView) {
-                        // Respond when the drawer is closed
-                    }
-
-                    @Override
-                    public void onDrawerStateChanged(int newState) {
-                        // Respond when the drawer motion state changes
-                    }
-                }
-        );
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, mDrawerLayout, toolbar,R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        mDrawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
-
-
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(
-                new NavigationView.OnNavigationItemSelectedListener() {
-                    @Override
-                    public boolean onNavigationItemSelected(MenuItem menuItem) {
-                        switch (menuItem.getItemId())
-                        {
-                            case R.id.view_contr:
-                                Intent intent1 = new Intent(VolunteerHomeActivity.this, ViewContributionsActivity.class);
-                                startActivity(intent1);
-                                break;
-                            case R.id.update:
-                                Intent intent2 = new Intent(VolunteerHomeActivity.this, UpdateParticipantDetailsActivity.class);
-                                startActivity(intent2);
-                                break;
-                            case R.id.withdraw:
-                                Intent intent3 = new Intent(VolunteerHomeActivity.this, ParticipantUnsubscribeActivity.class);
-                                startActivity(intent3);
-                                break;
-                            case R.id.passive:
-                                Intent intent4 = new Intent(VolunteerHomeActivity.this, GoPassiveActivity.class);
-                                startActivity(intent4);
-                                break;
-                            case R.id.logout:
-                                Intent intent5 = new Intent(VolunteerHomeActivity.this, LoginActivity.class);
-                                startActivity(intent5);
-                                break;
-                            default:
-                                break;
-                        }
-
-
-                        // set item as selected to persist highlight
-                        //menuItem.setChecked(true);
-                        // close drawer when item is tapped
-                        //mDrawerLayout.closeDrawers();
-
-                        // Add code here to update the UI based on the item selected
-                        // For example, swap UI fragments here
-
-                        return true;
-                    }
-                });
-        TextView name = null;
-        TextView email = null;
-        final ImageView profileImage;
-        String personName = "Yoshua Bengio";
-        String personEmail = "yosh.beng@gmail.com";
-        View header = navigationView.getHeaderView(0);
-        name = (TextView)header.findViewById(R.id.nameTxt);
-        email = (TextView)header.findViewById(R.id.emailTxt);
-        profileImage = (ImageView)header.findViewById(R.id.profileImageView);
-
-        // get Volunteer profile picture, name and email id from DB
-        get_volunteer_details(profileImage, name, email);
-        //name.setText(personName);
-        //email.setText(personEmail);
-        profileImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                     // Update volunteer profile picture activity
-                    Intent intent6 = new Intent(VolunteerHomeActivity.this, EditVolunteerProfilePictureActivity.class);
-
-                    // convert bitmap image into array
-                    Bitmap bmp = bitmap;
-                    ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                    bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
-                    byte[] byteArray = stream.toByteArray();
-
-                    // send byte array of image to intent
-                    intent6.putExtra("Profile picture", byteArray);
-                    startActivity(intent6);
-
-            }
-        });
 
     }
 
@@ -409,9 +297,9 @@ public class VolunteerHomeActivity extends AppCompatActivity implements OnMapRea
         //move map camera
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
         mMap.animateCamera(CameraUpdateFactory.zoomTo(20));
-        Toast.makeText(VolunteerHomeActivity.this,"Your Current Location", Toast.LENGTH_LONG).show();
+        Toast.makeText(VolunteerHomeActivity.this, "Your Current Location", Toast.LENGTH_LONG).show();
 
-        Log.d("onLocationChanged", String.format("latitude:%.3f longitude:%.3f",latitude,longitude));
+        Log.d("onLocationChanged", String.format("latitude:%.3f longitude:%.3f", latitude, longitude));
 
         //stop location updates
         if (mGoogleApiClient != null) {
@@ -428,7 +316,8 @@ public class VolunteerHomeActivity extends AppCompatActivity implements OnMapRea
     }
 
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
-    public boolean checkLocationPermission(){
+
+    public boolean checkLocationPermission() {
         if (ContextCompat.checkSelfPermission(this,
                 android.Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
@@ -492,6 +381,7 @@ public class VolunteerHomeActivity extends AppCompatActivity implements OnMapRea
             // You can add here other case statements according to your requirement.
         }
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -502,140 +392,54 @@ public class VolunteerHomeActivity extends AppCompatActivity implements OnMapRea
         return super.onOptionsItemSelected(item);
     }
 
-   public void get_volunteer_details( final ImageView profileImage, final TextView name, final TextView email) {
-
-
-       // Retrieves an image specified by the URL, displays it in the UI.
-       ImageRequest imagerequest = new ImageRequest(URL_VOLUNTEER_IMAGE, new Response.Listener<Bitmap>() {
-                   @Override
-                   public void onResponse(Bitmap bitmap1) {
-                       bitmap = bitmap1;
-                       profileImage.setImageBitmap(bitmap1);
-                   }
-               }, 0, 0, null,
-               new Response.ErrorListener() {
-                   public void onErrorResponse(VolleyError error) {
-                       Toast.makeText(VolunteerHomeActivity.this, "Sorry, could not access your profile picture!!", Toast.LENGTH_SHORT).show();
-                   }
-               }) {
-
-           @Override
-           public Map<String, String> getParams() {
-               SessionManager sessionManager = new SessionManager(getApplicationContext());
-               Map<String, String> params = new HashMap<String, String>();
-               params.put("loginToken", sessionManager.getLoginToken());
-               params.put("participantID", sessionManager.getParticipantID() );
-               return params;
-           }
-
-           @Override
-           public Map<String, String> getHeaders() throws AuthFailureError {
-               Map<String, String> params = new HashMap<String, String>();
-               params.put("Content-Type", "application/x-www-form-urlencoded");
-               return params;
-           }
-       };
-      // Access the RequestQueue through your singleton class.
-       AppController.getInstance().addToRequestQueue(imagerequest);
-
-       // DB query to fetch specific event details
-       // Creates JSON object Post request
-       StringRequest participantDetailsRequest = new StringRequest(Request.Method.POST, AppConfig.URL_VOLUNTEER_DETAILS, new Response.Listener<String>() {
-           @Override
-           public void onResponse(String response) {
-               json_query_result = response;
-               try{
-                   JSONObject json_response = new JSONObject(json_query_result);
-                   String Vol_name = json_response.getString("name");
-                   String Vol_email = json_response.getString("email");
-                   name.setText(Vol_name);
-                   email.setText(Vol_email);
-
-               }
-
-
-               catch(JSONException error){ error.printStackTrace();}
-           }
-       }, new Response.ErrorListener() {
-           @Override
-           public void onErrorResponse(VolleyError error) {
-               error.printStackTrace();
-           }
-       }) {
-
-           @Override
-           public Map<String, String> getParams() {
-               SessionManager sessionManager = new SessionManager(getApplicationContext());
-               Map<String, String> params = new HashMap<String, String>();
-               params.put("loginToken", sessionManager.getLoginToken());
-               params.put("participantID", sessionManager.getParticipantID());
-               return params;
-           }
-
-           @Override
-           public Map<String, String> getHeaders() throws AuthFailureError {
-               Map<String, String> params = new HashMap<String, String>();
-               params.put("Content-Type", "application/x-www-form-urlencoded");
-               return params;
-           }
-       };
-
-
-       AppController.getInstance().addToRequestQueue(participantDetailsRequest);
-
-   }
-
-
-   // fetch an event target and current amount from server for user home page
-   public String[] get_target_and_current_amount_for_an_event()
-   {
+    // fetch an event target and current amount from server for user home page
+    public String[] get_target_and_current_amount_for_an_event() {
         final String[] event_target_current_amnt = new String[2];
 
-       StringRequest participantDetailsRequest = new StringRequest(Request.Method.POST, AppConfig.URL_EVENT_DETAILS, new Response.Listener<String>() {
-           @Override
-           public void onResponse(String response) {
-               json_query_result = response;
-               try{
+        StringRequest participantDetailsRequest = new StringRequest(Request.Method.POST, AppConfig.URL_EVENT_DETAILS, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                json_query_result = response;
+                try {
 
-                   JSONObject json_response = new JSONObject(json_query_result);
-                   event_target_current_amnt[0] = json_response.getString("target_amount");
-                   event_target_current_amnt[1] = json_response.getString("current_amount");
+                    JSONObject json_response = new JSONObject(json_query_result);
+                    event_target_current_amnt[0] = json_response.getString("target_amount");
+                    event_target_current_amnt[1] = json_response.getString("current_amount");
 
-               }
+                } catch (JSONException error) {
+                    error.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        }) {
+
+            @Override
+            public Map<String, String> getParams() {
+                SessionManager sessionManager = new SessionManager(getApplicationContext());
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("loginToken", sessionManager.getLoginToken());
+                params.put("eventID", eventID);
+                return params;
+            }
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("Content-Type", "application/x-www-form-urlencoded");
+                return params;
+            }
+        };
 
 
-               catch(JSONException error){ error.printStackTrace();}
-           }
-       }, new Response.ErrorListener() {
-           @Override
-           public void onErrorResponse(VolleyError error) {
-               error.printStackTrace();
-           }
-       }) {
+        AppController.getInstance().addToRequestQueue(participantDetailsRequest);
 
-           @Override
-           public Map<String, String> getParams() {
-               SessionManager sessionManager = new SessionManager(getApplicationContext());
-               Map<String, String> params = new HashMap<String, String>();
-               params.put("loginToken", sessionManager.getLoginToken());
-               params.put("eventID", eventID);
-               return params;
-           }
+        return event_target_current_amnt;
 
-           @Override
-           public Map<String, String> getHeaders() throws AuthFailureError {
-               Map<String, String> params = new HashMap<String, String>();
-               params.put("Content-Type", "application/x-www-form-urlencoded");
-               return params;
-           }
-       };
-
-
-       AppController.getInstance().addToRequestQueue(participantDetailsRequest);
-
-       return event_target_current_amnt;
-
-   }
+    }
 
 }
 
