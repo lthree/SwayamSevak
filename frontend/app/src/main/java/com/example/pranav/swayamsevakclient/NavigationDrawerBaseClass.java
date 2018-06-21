@@ -48,7 +48,7 @@ public class NavigationDrawerBaseClass extends AppCompatActivity {
         super.onCreate(savedInstanceState, persistentState);
         setContentView(R.layout.activity_navigation_drawer_base_class);
 
-        DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout); // Houses all main content + navigation drawer content
 
         mDrawerLayout.addDrawerListener(
                 new DrawerLayout.DrawerListener()
