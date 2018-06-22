@@ -24,7 +24,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class DonateActivity extends AppCompatActivity {
+public class DonateActivity extends NavigationDrawerBaseClass {
     String mDonorName, mDonorAddress, mDonorEmailAddress, mDonorStar, mDonorRashi, mDonorGotra, mDonorContactNumber, mDonorDonationAmount;
 
     @Override

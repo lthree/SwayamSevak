@@ -60,7 +60,7 @@ import java.util.Map;
 import static com.example.pranav.swayamsevakclient.AppConfig.URL_EVENT_IMAGE;
 import static com.example.pranav.swayamsevakclient.AppConfig.URL_VOLUNTEER_IMAGE;
 
-public class VolunteerHomeActivity extends AppCompatActivity implements OnMapReadyCallback,
+public class VolunteerHomeActivity extends NavigationDrawerBaseClass implements OnMapReadyCallback,
         GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener,
         LocationListener {

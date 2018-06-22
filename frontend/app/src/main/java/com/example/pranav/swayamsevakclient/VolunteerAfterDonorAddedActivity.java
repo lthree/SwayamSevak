@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class VolunteerAfterDonorAddedActivity extends AppCompatActivity {
+public class VolunteerAfterDonorAddedActivity extends NavigationDrawerBaseClass {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

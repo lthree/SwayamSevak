@@ -29,7 +29,7 @@ import java.util.Map;
 
 import static com.example.pranav.swayamsevakclient.AppConfig.URL_EVENT_IMAGE;
 
-public class ShowEventDetailsActivity extends AppCompatActivity {
+public class ShowEventDetailsActivity extends NavigationDrawerBaseClass {
 
     private String json_query_result;
     final ArrayList<Event> event_data_list = new ArrayList<Event>();

@@ -20,7 +20,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class DonorDetailsAddedActivity extends AppCompatActivity {
+public class DonorDetailsAddedActivity extends NavigationDrawerBaseClass {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

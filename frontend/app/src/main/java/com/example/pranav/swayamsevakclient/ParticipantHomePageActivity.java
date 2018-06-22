@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class ParticipantHomePageActivity extends AppCompatActivity {
+public class ParticipantHomePageActivity extends NavigationDrawerBaseClass {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
