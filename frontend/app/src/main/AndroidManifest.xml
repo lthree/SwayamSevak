@@ -27,7 +27,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ParticipantHomePageActivity" />
         <activity android:name=".ListAvailableEventsActivity" />
         <activity android:name=".ShowEventDetailsActivity" />
         <activity android:name=".DonateActivity" />

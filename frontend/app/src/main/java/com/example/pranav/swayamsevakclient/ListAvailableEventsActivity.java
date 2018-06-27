@@ -2,6 +2,7 @@ package com.example.pranav.swayamsevakclient;
 
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.support.design.internal.NavigationMenu;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -30,7 +31,7 @@ import java.util.Map;
 
 import static com.example.pranav.swayamsevakclient.AppConfig.URL_LIST_EVENTS;
 
-public class ListAvailableEventsActivity extends AppCompatActivity {
+public class ListAvailableEventsActivity extends NavigationDrawerBaseClass {
 
     private String json_query_result;
     private EventListAdapter mEventAdapter;

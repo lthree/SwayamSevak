@@ -52,7 +52,7 @@ public class LoginActivity extends AppCompatActivity {
         // Check if user is already logged in or not
         if (session.isLoggedIn()) {
             // User is already logged in. Take him to main activity
-            Intent intent = new Intent(LoginActivity.this, ParticipantHomePageActivity.class);
+            Intent intent = new Intent(LoginActivity.this, ListAvailableEventsActivity.class);
             startActivity(intent);
             //finish();
         }
@@ -126,7 +126,7 @@ public class LoginActivity extends AppCompatActivity {
                         session.setParticipantID(participantID);
 
                         // Launch main activity
-                        Intent intent = new Intent(LoginActivity.this,ParticipantHomePageActivity.class);
+                        Intent intent = new Intent(LoginActivity.this,ListAvailableEventsActivity.class);
                         //intent.putExtra("name", name);
                         //intent.putExtra("email",email);
                         startActivity(intent);
