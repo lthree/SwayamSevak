@@ -72,8 +72,17 @@ public class DonateActivity extends NavigationDrawerBaseClass {
                             Toast.makeText(DonateActivity.this, "Details successfully submitted!!", Toast.LENGTH_SHORT).show();
 
                             // invoke status activity
-                            Intent submit_donor_info_intent = new Intent(getApplicationContext(), DonorDetailsAddedActivity.class);
-                            startActivity(submit_donor_info_intent);
+                            Bundle extras = getIntent().getExtras(); // extract the user type
+                            String userType = (String) extras.get("user_type");
+                            if (userType.equals("volunteer")) {
+                                Intent submit_donor_info_intent = new Intent(getApplicationContext(), DonorDetailsAddedActivity.class);
+                                startActivity(submit_donor_info_intent);
+                            }
+                            else if (userType.equals("donor")) {
+                                Intent land_donor_to_home_intent = new Intent(getApplicationContext(), ListAvailableEventsActivity.class);
+                                startActivity(land_donor_to_home_intent);
+                            }
+
 
                         }
                     }, new Response.ErrorListener() {

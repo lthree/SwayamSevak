@@ -148,6 +148,7 @@ public class ShowEventDetailsActivity extends NavigationDrawerBaseClass {
                 @Override
                 public void onClick(View view) {
                     Intent open_donate_page_intent = new Intent(getApplicationContext(), DonateActivity.class);
+                    open_donate_page_intent.putExtra("user_type", "donor");
                     startActivity(open_donate_page_intent);
                 }
             });
