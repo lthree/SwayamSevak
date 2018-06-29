@@ -126,6 +126,7 @@ public class VolunteerHomeActivity extends AppCompatActivity implements OnMapRea
         currentTextView.setText(currenttext);
 
         Button btnCheckin = findViewById(R.id.btn_checkin);
+        final String Volunteer_name = "Get Volunterer name";
         btnCheckin.setOnClickListener(new View.OnClickListener() {
             String Restaurant = "restaurant";
 
@@ -138,7 +139,7 @@ public class VolunteerHomeActivity extends AppCompatActivity implements OnMapRea
                 DataTransfer[0] = mMap;
                 DataTransfer[1] = url;
                 Log.d("onClick", url);
-                GetNearbyPlacesData getNearbyPlacesData = new GetNearbyPlacesData();
+                GetNearbyPlacesData getNearbyPlacesData = new GetNearbyPlacesData(Volunteer_name);
                 getNearbyPlacesData.execute(DataTransfer);
                 Toast.makeText(VolunteerHomeActivity.this, "Nearby Restaurants & locality", Toast.LENGTH_LONG).show();
             }
@@ -157,7 +158,7 @@ public class VolunteerHomeActivity extends AppCompatActivity implements OnMapRea
                 DataTransfer[0] = mMap;
                 DataTransfer[1] = url;
                 Log.d("onClick", url);
-                GetNearbyPlacesData getNearbyPlacesData = new GetNearbyPlacesData();
+                GetNearbyPlacesData getNearbyPlacesData = new GetNearbyPlacesData(Volunteer_name);
                 getNearbyPlacesData.execute(DataTransfer);
                 Toast.makeText(VolunteerHomeActivity.this, "Nearby Hospitals", Toast.LENGTH_LONG).show();
             }
