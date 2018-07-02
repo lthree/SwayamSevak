@@ -125,42 +125,31 @@ public class VolunteerHomeActivity extends AppCompatActivity implements OnMapRea
 
         currentTextView.setText(currenttext);
 
-        Button btnCheckin = findViewById(R.id.btn_checkin);
-        final String Volunteer_name = "Get Volunterer name";
-        btnCheckin.setOnClickListener(new View.OnClickListener() {
-            String Restaurant = "restaurant";
+        get_nearby_buildings();
+        //get_selected_building_location();
 
+        Button btnCheckin = findViewById(R.id.btn_checkin);
+        btnCheckin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d("onClick", "Button is Clicked");
                 //mMap.clear();
-                String url = getUrl(latitude, longitude,"regions|restaurant|neighborhood|locality|sublocality");
-                Object[] DataTransfer = new Object[2];
-                DataTransfer[0] = mMap;
-                DataTransfer[1] = url;
-                Log.d("onClick", url);
-                GetNearbyPlacesData getNearbyPlacesData = new GetNearbyPlacesData(Volunteer_name);
-                getNearbyPlacesData.execute(DataTransfer);
-                Toast.makeText(VolunteerHomeActivity.this, "Nearby Restaurants & locality", Toast.LENGTH_LONG).show();
+                // Send selected building location (lat lang) and send it to server for setting status of that building
+                get_selected_building_location();
+                // send lat lang to the server along with its details
+                send_location_to_change_status();
             }
         });
 
         Button btnCheckout = findViewById(R.id.btn_checkout);
         btnCheckout.setOnClickListener(new View.OnClickListener() {
-            String Hospital = "hospital";
-
             @Override
             public void onClick(View v) {
                 Log.d("onClick", "Button is Clicked");
                 //mMap.clear();
-                String url = getUrl(latitude, longitude, Hospital);
-                Object[] DataTransfer = new Object[2];
-                DataTransfer[0] = mMap;
-                DataTransfer[1] = url;
-                Log.d("onClick", url);
-                GetNearbyPlacesData getNearbyPlacesData = new GetNearbyPlacesData(Volunteer_name);
-                getNearbyPlacesData.execute(DataTransfer);
-                Toast.makeText(VolunteerHomeActivity.this, "Nearby Hospitals", Toast.LENGTH_LONG).show();
+                // send selected building location (lat lang) and send it to server for changing the status of the building
+                send_location_to_change_status();
+                get_nearby_buildings();
             }
         });
 
@@ -638,5 +627,17 @@ public class VolunteerHomeActivity extends AppCompatActivity implements OnMapRea
 
    }
 
+   public void get_nearby_buildings() {
+       String url = getUrl(latitude, longitude,"regions|restaurant|neighborhood|locality|sublocality");
+       Object[] DataTransfer = new Object[2];
+       DataTransfer[0] = mMap;
+       DataTransfer[1] = url;
+       Log.d("onClick", url);
+       GetNearbyPlacesData getNearbyPlacesData = new GetNearbyPlacesData(Volunteer_name);
+       getNearbyPlacesData.execute(DataTransfer);
+       Toast.makeText(VolunteerHomeActivity.this, "Nearby Restaurants & locality", Toast.LENGTH_LONG).show();
+   }
+   public void get_selected_building_location() {}
+   public void send_location_to_change_status() {}
 }
 
