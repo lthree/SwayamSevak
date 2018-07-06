@@ -70,6 +70,7 @@ public class VolunteerHomeActivity extends AppCompatActivity implements OnMapRea
     private int PROXIMITY_RADIUS = 5000;
     private String json_query_result;
     private Bitmap bitmap;
+    private String Volunteer_name;
     GoogleApiClient mGoogleApiClient;
     Location mLastLocation;
     Marker mCurrLocationMarker;
@@ -637,7 +638,11 @@ public class VolunteerHomeActivity extends AppCompatActivity implements OnMapRea
        getNearbyPlacesData.execute(DataTransfer);
        Toast.makeText(VolunteerHomeActivity.this, "Nearby Restaurants & locality", Toast.LENGTH_LONG).show();
    }
-   public void get_selected_building_location() {}
-   public void send_location_to_change_status() {}
+   public void get_selected_building_location() {
+
+   }
+   public void send_location_to_change_status() {
+
+   }
 }
 
