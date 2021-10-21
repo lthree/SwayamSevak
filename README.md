@@ -16,7 +16,7 @@ This android application is developed for volunteers to collect donations for va
 
 
 
-###### Planned features
+## Planned features
 * [ ] Potential donors can also login and can see all the upcoming events and can show interests for donating in a particuar event. 
 * [ ] Management of all events, approving and removing volunteers by a Single authorized manager.
 * [ ] Next place suggestion with Maps to the volunteers for collecting donations from different places.
@@ -26,14 +26,14 @@ This android application is developed for volunteers to collect donations for va
 
 ## Getting Started
 
-## Prerequisites
+### Prerequisites
 1. For configuring backend
    - Database Server: Mysql
    - PHP Server: 
    - Web Server: Apache
 2. For building and installing android APK on your physical device 
 
-## Installing
+### Installing
 
 - Configuring Backend Server
 
@@ -43,12 +43,12 @@ This android application is developed for volunteers to collect donations for va
 - Configuring GUI on Anroid emulator having atlleast SDK version 15 and above
 
 
-## Deployment
+### Deployment
 Configure a php and mysql server and host the scripts in backend folder.
 
 
 
-## Built  With
+### Built  With
 - [Android Studio 3.0](https://developer.android.com/studio/index.html)
 - [PHP 7](http://php.net/downloads.php)
 - [Mysql](https://dev.mysql.com/downloads/mysql/)
