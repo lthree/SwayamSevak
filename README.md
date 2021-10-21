@@ -2,7 +2,7 @@
 
 ## Synopsis
 
-This android application is developed for volunteers to collect donations for various events viz. charity, natural diaster help drive, cultural or religious events and so on. Volunteers can login, view events as well as their contributions (past and ongoing), unsubscribe from a particular event etc.
+This android application is developed for volunteers to collect donations for various events viz. charity, natural disaster help drive, cultural or religious events and so on. Volunteers can login, view events as well as their contributions (past and ongoing), unsubscribe from a particular event etc.
 
 
 <p><img alt="Image" src="Screenshorts/Screenshot_20180311-104835.png" height = 330 width = 210 title="Landing Screen"></p>
