@@ -2,7 +2,7 @@
 
 ## Synopsis
 
-This android application is developed for volunteers to collect donations from donors from different places for different events. Events can be of different types, viz. charity, natural diaster help drive, some cultural or religious events and so on. Volunteers can login, view events, their contributions (past and ongoing contributions), unsubscribe from a particular event.
+This android application is developed for volunteers to collect donations for various events viz. charity, natural diaster help drive, cultural or religious events and so on. Volunteers can login, view events as well as their contributions (past and ongoing), unsubscribe from a particular event etc.
 
 
 <p><img alt="Image" src="Screenshorts/Screenshot_20180311-104835.png" height = 330 width = 210 title="Landing Screen"></p>
@@ -17,9 +17,10 @@ This android application is developed for volunteers to collect donations from d
 
 
 ###### Planned features
-Donors can also login and can see all the upcoming events and can show interests for donating in a particuar event. Management of all events, approving and removing volunteers by a Single authorized manager.
-Next place suggestion with Maps to the volunteers for collecting donations from different places.
-Including different payment methods
+* [ ] Potential donors can also login and can see all the upcoming events and can show interests for donating in a particuar event. 
+* [ ] Management of all events, approving and removing volunteers by a Single authorized manager.
+* [ ] Next place suggestion with Maps to the volunteers for collecting donations from different places.
+* [ ] Various payment methods
 
 
 
@@ -53,7 +54,7 @@ Configure a php and mysql server and host the scripts in backend folder.
 - [Mysql](https://dev.mysql.com/downloads/mysql/)
 
 ## Authors
-Following are the list of contributors who contributed to this project:
+Following are the list of contributors:
 * Pranav Kant Gaur
 * Shaleen Jain
 * Wahdat Safia
